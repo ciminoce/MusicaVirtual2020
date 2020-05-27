@@ -36,5 +36,14 @@ namespace MusicaVirtual2020.Reportes
             rpt.SetDataSource(ds);
             return rpt;
         }
+
+        public InterpretesAgrupadoPorPais GetReporteInterpretesAgrupados(List<Interprete> lista)
+        {
+            InterpretesAgrupadoPorPais rpt = new InterpretesAgrupadoPorPais();
+            ManejadorDatosInterpretes manejadorDatos = new ManejadorDatosInterpretes();
+            var ds = manejadorDatos.PonerDatosDeInterpretes(lista);
+            rpt.SetDataSource(ds);
+            return rpt;
+        }
     }
 }

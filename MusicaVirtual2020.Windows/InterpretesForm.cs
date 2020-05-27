@@ -217,5 +217,16 @@ namespace MusicaVirtual2020.Windows
             frm.SetReporte(rpt);
             frm.ShowDialog(this);
         }
+
+        private void agrupadoXPaísToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            lista = servicio.GetInterpretes();
+            ManejadorDeReportes manejadorDeReportes = new ManejadorDeReportes();
+            InterpretesAgrupadoPorPais rpt = manejadorDeReportes.GetReporteInterpretesAgrupados(lista);
+            ReportesForm frm = new ReportesForm();
+            frm.SetReporte(rpt);
+            frm.ShowDialog(this);
+
+        }
     }
 }
