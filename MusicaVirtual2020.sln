@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30002.166
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MusicaVirtual2020.Windows", "MusicaVirtual2020.Windows\MusicaVirtual2020.Windows.csproj", "{AC6006DB-FA66-4A15-850D-9EECDE50CDB0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MusicaVirtual2020.Entidades", "MusicaVirtual2020.Entidades\MusicaVirtual2020.Entidades.csproj", "{5219DBC8-6551-4252-A2FC-F8F2FE275D59}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MusicaVirtual2020.Datos", "MusicaVirtual2020.Datos\MusicaVirtual2020.Datos.csproj", "{CB39F3C9-1B05-448D-982B-B522B935ADE9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MusicaVirtual2020.Servicios", "MusicaVirtual2020.Servicios\MusicaVirtual2020.Servicios.csproj", "{3CD79318-2C3F-44E7-A6DF-C82891CF6C18}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MusicaVirtual2020.Reportes", "MusicaVirtual2020.Reportes\MusicaVirtual2020.Reportes.csproj", "{12D6D30C-ED0C-48B4-B0C6-F5A410DCA948}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AC6006DB-FA66-4A15-850D-9EECDE50CDB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC6006DB-FA66-4A15-850D-9EECDE50CDB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC6006DB-FA66-4A15-850D-9EECDE50CDB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC6006DB-FA66-4A15-850D-9EECDE50CDB0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5219DBC8-6551-4252-A2FC-F8F2FE275D59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5219DBC8-6551-4252-A2FC-F8F2FE275D59}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5219DBC8-6551-4252-A2FC-F8F2FE275D59}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5219DBC8-6551-4252-A2FC-F8F2FE275D59}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CB39F3C9-1B05-448D-982B-B522B935ADE9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CB39F3C9-1B05-448D-982B-B522B935ADE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CB39F3C9-1B05-448D-982B-B522B935ADE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CB39F3C9-1B05-448D-982B-B522B935ADE9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3CD79318-2C3F-44E7-A6DF-C82891CF6C18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CD79318-2C3F-44E7-A6DF-C82891CF6C18}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3CD79318-2C3F-44E7-A6DF-C82891CF6C18}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CD79318-2C3F-44E7-A6DF-C82891CF6C18}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12D6D30C-ED0C-48B4-B0C6-F5A410DCA948}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12D6D30C-ED0C-48B4-B0C6-F5A410DCA948}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12D6D30C-ED0C-48B4-B0C6-F5A410DCA948}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12D6D30C-ED0C-48B4-B0C6-F5A410DCA948}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {10E3F0F3-8E44-41FA-868D-B6CFEECDF9A9}
+	EndGlobalSection
+EndGlobal
