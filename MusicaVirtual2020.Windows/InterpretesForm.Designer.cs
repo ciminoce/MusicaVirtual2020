@@ -33,16 +33,19 @@
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.DatosDataGridView = new System.Windows.Forms.DataGridView();
-            this.cmnInterprete = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cmnPais = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NuevoToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.BorrarToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.EditarToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.BuscarToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.ActualizarToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.ImprimirToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.CerrarToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.DatosDataGridView = new System.Windows.Forms.DataGridView();
+            this.cmnInterprete = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cmnPais = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ImprimirToolStripButton = new System.Windows.Forms.ToolStripDropDownButton();
+            this.generalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.agrupadoXPaísToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.filtradoXPaísToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DatosDataGridView)).BeginInit();
             this.SuspendLayout();
@@ -90,38 +93,6 @@
             this.toolStrip1.Size = new System.Drawing.Size(800, 62);
             this.toolStrip1.TabIndex = 4;
             this.toolStrip1.Text = "toolStrip1";
-            // 
-            // DatosDataGridView
-            // 
-            this.DatosDataGridView.AllowUserToAddRows = false;
-            this.DatosDataGridView.AllowUserToDeleteRows = false;
-            this.DatosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DatosDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.cmnInterprete,
-            this.cmnPais});
-            this.DatosDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DatosDataGridView.Location = new System.Drawing.Point(0, 62);
-            this.DatosDataGridView.MultiSelect = false;
-            this.DatosDataGridView.Name = "DatosDataGridView";
-            this.DatosDataGridView.ReadOnly = true;
-            this.DatosDataGridView.RowHeadersVisible = false;
-            this.DatosDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DatosDataGridView.Size = new System.Drawing.Size(800, 388);
-            this.DatosDataGridView.TabIndex = 5;
-            // 
-            // cmnInterprete
-            // 
-            this.cmnInterprete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.cmnInterprete.HeaderText = "Intérprete";
-            this.cmnInterprete.Name = "cmnInterprete";
-            this.cmnInterprete.ReadOnly = true;
-            // 
-            // cmnPais
-            // 
-            this.cmnPais.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.cmnPais.HeaderText = "País";
-            this.cmnPais.Name = "cmnPais";
-            this.cmnPais.ReadOnly = true;
             // 
             // NuevoToolStripButton
             // 
@@ -176,16 +147,6 @@
             this.ActualizarToolStripButton.Text = "Actualizar";
             this.ActualizarToolStripButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
-            // ImprimirToolStripButton
-            // 
-            this.ImprimirToolStripButton.Image = global::MusicaVirtual2020.Windows.Properties.Resources.Print;
-            this.ImprimirToolStripButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.ImprimirToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.ImprimirToolStripButton.Name = "ImprimirToolStripButton";
-            this.ImprimirToolStripButton.Size = new System.Drawing.Size(57, 59);
-            this.ImprimirToolStripButton.Text = "Imprimir";
-            this.ImprimirToolStripButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            // 
             // CerrarToolStripButton
             // 
             this.CerrarToolStripButton.Image = global::MusicaVirtual2020.Windows.Properties.Resources.Close;
@@ -196,6 +157,71 @@
             this.CerrarToolStripButton.Text = "Cerrar";
             this.CerrarToolStripButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.CerrarToolStripButton.Click += new System.EventHandler(this.CerrarToolStripButton_Click);
+            // 
+            // DatosDataGridView
+            // 
+            this.DatosDataGridView.AllowUserToAddRows = false;
+            this.DatosDataGridView.AllowUserToDeleteRows = false;
+            this.DatosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DatosDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.cmnInterprete,
+            this.cmnPais});
+            this.DatosDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DatosDataGridView.Location = new System.Drawing.Point(0, 62);
+            this.DatosDataGridView.MultiSelect = false;
+            this.DatosDataGridView.Name = "DatosDataGridView";
+            this.DatosDataGridView.ReadOnly = true;
+            this.DatosDataGridView.RowHeadersVisible = false;
+            this.DatosDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DatosDataGridView.Size = new System.Drawing.Size(800, 388);
+            this.DatosDataGridView.TabIndex = 5;
+            // 
+            // cmnInterprete
+            // 
+            this.cmnInterprete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.cmnInterprete.HeaderText = "Intérprete";
+            this.cmnInterprete.Name = "cmnInterprete";
+            this.cmnInterprete.ReadOnly = true;
+            // 
+            // cmnPais
+            // 
+            this.cmnPais.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.cmnPais.HeaderText = "País";
+            this.cmnPais.Name = "cmnPais";
+            this.cmnPais.ReadOnly = true;
+            // 
+            // ImprimirToolStripButton
+            // 
+            this.ImprimirToolStripButton.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.generalToolStripMenuItem,
+            this.agrupadoXPaísToolStripMenuItem,
+            this.filtradoXPaísToolStripMenuItem});
+            this.ImprimirToolStripButton.Image = global::MusicaVirtual2020.Windows.Properties.Resources.Print;
+            this.ImprimirToolStripButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.ImprimirToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.ImprimirToolStripButton.Name = "ImprimirToolStripButton";
+            this.ImprimirToolStripButton.Size = new System.Drawing.Size(66, 59);
+            this.ImprimirToolStripButton.Text = "Imprimir";
+            this.ImprimirToolStripButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            // 
+            // generalToolStripMenuItem
+            // 
+            this.generalToolStripMenuItem.Name = "generalToolStripMenuItem";
+            this.generalToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.generalToolStripMenuItem.Text = "General";
+            this.generalToolStripMenuItem.Click += new System.EventHandler(this.generalToolStripMenuItem_Click);
+            // 
+            // agrupadoXPaísToolStripMenuItem
+            // 
+            this.agrupadoXPaísToolStripMenuItem.Name = "agrupadoXPaísToolStripMenuItem";
+            this.agrupadoXPaísToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.agrupadoXPaísToolStripMenuItem.Text = "Agrupado x País";
+            // 
+            // filtradoXPaísToolStripMenuItem
+            // 
+            this.filtradoXPaísToolStripMenuItem.Name = "filtradoXPaísToolStripMenuItem";
+            this.filtradoXPaísToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.filtradoXPaísToolStripMenuItem.Text = "Filtrado x País";
             // 
             // InterpretesForm
             // 
@@ -225,7 +251,6 @@
         private System.Windows.Forms.ToolStripButton BuscarToolStripButton;
         private System.Windows.Forms.ToolStripButton ActualizarToolStripButton;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
-        private System.Windows.Forms.ToolStripButton ImprimirToolStripButton;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripButton CerrarToolStripButton;
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;
@@ -233,5 +258,9 @@
         private System.Windows.Forms.DataGridView DatosDataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn cmnInterprete;
         private System.Windows.Forms.DataGridViewTextBoxColumn cmnPais;
+        private System.Windows.Forms.ToolStripDropDownButton ImprimirToolStripButton;
+        private System.Windows.Forms.ToolStripMenuItem generalToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem agrupadoXPaísToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem filtradoXPaísToolStripMenuItem;
     }
 }

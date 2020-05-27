@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CrystalDecisions.CrystalReports.Engine;
 using MusicaVirtual2020.Reportes;
 
 namespace MusicaVirtual2020.Windows
@@ -18,8 +19,8 @@ namespace MusicaVirtual2020.Windows
             InitializeComponent();
         }
 
-        private PaisesReporte rpt;
-        public void SetReporte(PaisesReporte rpt)
+        private ReportClass rpt;
+        public void SetReporte(ReportClass rpt)
         {
             this.rpt = rpt;
         }

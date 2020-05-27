@@ -45,6 +45,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="InterpretesReporte.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InterpretesReporte.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ManejadorDatosInterpretes.cs" />
     <Compile Include="ManejadorDatosPaises.cs" />
     <Compile Include="ManejadorDeReportes.cs" />
     <Compile Include="MusicaVirtualDataSet.Designer.cs">
@@ -74,6 +81,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="InterpretesReporte.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InterpretesReporte.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="PaisesReporte.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>PaisesReporte.cs</LastGenOutput>

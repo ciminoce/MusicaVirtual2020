@@ -12,10 +12,18 @@
   <xs:element name="MusicaVirtualDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="MusicaVirtualDataSet" msprop:Generator_UserDSName="MusicaVirtualDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="PaisesDataTable" msprop:Generator_TableClassName="PaisesDataTableDataTable" msprop:Generator_TableVarName="tablePaisesDataTable" msprop:Generator_TablePropName="PaisesDataTable" msprop:Generator_RowDeletingName="PaisesDataTableRowDeleting" msprop:Generator_RowChangingName="PaisesDataTableRowChanging" msprop:Generator_RowEvHandlerName="PaisesDataTableRowChangeEventHandler" msprop:Generator_RowDeletedName="PaisesDataTableRowDeleted" msprop:Generator_UserTableName="PaisesDataTable" msprop:Generator_RowChangedName="PaisesDataTableRowChanged" msprop:Generator_RowEvArgName="PaisesDataTableRowChangeEvent" msprop:Generator_RowClassName="PaisesDataTableRow">
+        <xs:element name="PaisesDataTable" msprop:Generator_TableClassName="PaisesDataTableDataTable" msprop:Generator_TableVarName="tablePaisesDataTable" msprop:Generator_RowChangedName="PaisesDataTableRowChanged" msprop:Generator_TablePropName="PaisesDataTable" msprop:Generator_RowDeletingName="PaisesDataTableRowDeleting" msprop:Generator_RowChangingName="PaisesDataTableRowChanging" msprop:Generator_RowEvHandlerName="PaisesDataTableRowChangeEventHandler" msprop:Generator_RowDeletedName="PaisesDataTableRowDeleted" msprop:Generator_RowClassName="PaisesDataTableRow" msprop:Generator_UserTableName="PaisesDataTable" msprop:Generator_RowEvArgName="PaisesDataTableRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Nombre" msprop:Generator_ColumnVarNameInTable="columnNombre" msprop:Generator_ColumnPropNameInRow="Nombre" msprop:Generator_ColumnPropNameInTable="NombreColumn" msprop:Generator_UserColumnName="Nombre" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="InterpretesDataTable" msprop:Generator_TableClassName="InterpretesDataTableDataTable" msprop:Generator_TableVarName="tableInterpretesDataTable" msprop:Generator_TablePropName="InterpretesDataTable" msprop:Generator_RowDeletingName="InterpretesDataTableRowDeleting" msprop:Generator_RowChangingName="InterpretesDataTableRowChanging" msprop:Generator_RowEvHandlerName="InterpretesDataTableRowChangeEventHandler" msprop:Generator_RowDeletedName="InterpretesDataTableRowDeleted" msprop:Generator_UserTableName="InterpretesDataTable" msprop:Generator_RowChangedName="InterpretesDataTableRowChanged" msprop:Generator_RowEvArgName="InterpretesDataTableRowChangeEvent" msprop:Generator_RowClassName="InterpretesDataTableRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="NombreInterprete" msprop:Generator_ColumnVarNameInTable="columnNombreInterprete" msprop:Generator_ColumnPropNameInRow="NombreInterprete" msprop:Generator_ColumnPropNameInTable="NombreInterpreteColumn" msprop:Generator_UserColumnName="NombreInterprete" type="xs:string" minOccurs="0" />
+              <xs:element name="NombrePais" msprop:Generator_ColumnVarNameInTable="columnNombrePais" msprop:Generator_ColumnPropNameInRow="NombrePais" msprop:Generator_ColumnPropNameInTable="NombrePaisColumn" msprop:Generator_UserColumnName="NombrePais" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

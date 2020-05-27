@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 using MusicaVirtual2020.Entidades;
+using MusicaVirtual2020.Reportes;
 using MusicaVirtual2020.Servicios;
 
 namespace MusicaVirtual2020.Windows
@@ -202,12 +203,19 @@ namespace MusicaVirtual2020.Windows
                     {
                         MessageBox.Show(exception.Message, "Error",
                             MessageBoxButtons.OK, MessageBoxIcon.Error);
-
                     }
                 }
-
             }
+        }
 
+        private void generalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            lista = servicio.GetInterpretes();
+            ManejadorDeReportes manejadorDeReportes=new ManejadorDeReportes();
+            InterpretesReporte rpt = manejadorDeReportes.GetInterpretesReporte(lista);
+            ReportesForm frm=new ReportesForm();
+            frm.SetReporte(rpt);
+            frm.ShowDialog(this);
         }
     }
 }
