@@ -107,6 +107,12 @@
     <Compile Include="PaisesForm.Designer.cs">
       <DependentUpon>PaisesForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="PaisFiltrarFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PaisFiltrarFrm.Designer.cs">
+      <DependentUpon>PaisFiltrarFrm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReportesForm.cs">
@@ -141,6 +147,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PaisesForm.resx">
       <DependentUpon>PaisesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PaisFiltrarFrm.resx">
+      <DependentUpon>PaisFiltrarFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

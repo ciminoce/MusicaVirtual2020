@@ -228,5 +228,25 @@ namespace MusicaVirtual2020.Windows
             frm.ShowDialog(this);
 
         }
+
+        private void filtradoXPaísToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PaisFiltrarFrm frm=new PaisFiltrarFrm();
+            DialogResult dr = frm.ShowDialog(this);
+            if (dr==DialogResult.OK)
+            {
+                try
+                {
+                    Pais pais = frm.GetPais();
+                    var listaFiltrada = servicio.GetInterpretes(pais);
+
+                }
+                catch (Exception exception)
+                {
+                    Console.WriteLine(exception);
+                    throw;
+                }
+            }
+        }
     }
 }

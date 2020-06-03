@@ -106,13 +106,20 @@ namespace MusicaVirtual2020.Datos
                 throw new Exception(e.Message);
             }
         }
-        public List<Interprete> GetInterpretes()
+        public List<Interprete> GetInterpretes(Pais pais=null)
         {
             try
             {
                 List<Interprete> lista = new List<Interprete>();
-                var cadenaComando = "SELECT InterpreteId, Nombre, PaisId FROM Interpretes ORDER BY Nombre";
-                var comando = new SqlCommand(cadenaComando, _cn);
+                var cadenaComando = "SELECT InterpreteId, Nombre, PaisId FROM Interpretes ";
+                string whereCondicion = pais != null ? " WHERE PaisId=@paisid " : string.Empty;
+                var orderBy=" ORDER BY Nombre";
+
+                var comando = new SqlCommand($"{cadenaComando}{whereCondicion}{orderBy}", _cn);
+                if (pais!=null)
+                {
+                    comando.Parameters.AddWithValue("@paisid", pais.PaisId);
+                }
                 var reader = comando.ExecuteReader();
                 while (reader.Read())
                 {

@@ -51,6 +51,12 @@
       <DependentUpon>InterpretesAgrupadoPorPais.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="InterpretesFiltrado.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InterpretesFiltrado.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="InterpretesReporte.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -90,6 +96,10 @@
     <EmbeddedResource Include="InterpretesAgrupadoPorPais.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>InterpretesAgrupadoPorPais.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterpretesFiltrado.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InterpretesFiltrado.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="InterpretesReporte.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
