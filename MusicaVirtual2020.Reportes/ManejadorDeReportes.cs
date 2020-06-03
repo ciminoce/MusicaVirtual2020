@@ -27,6 +27,14 @@ namespace MusicaVirtual2020.Reportes
             rpt.SetDataSource(ds); //Asigno el objeto ds como fuente de datos del reporte
             return rpt;//retorno el reporte a la capa de presentación.
         }
+        public InterpretesFiltrado GetInterpretesReporteFiltrado(List<Interprete> lista)
+        {
+            InterpretesFiltrado rpt = new InterpretesFiltrado();
+            ManejadorDatosInterpretes manejadorDatos = new ManejadorDatosInterpretes();
+            var ds = manejadorDatos.PonerDatosDeInterpretes(lista);
+            rpt.SetDataSource(ds);
+            return rpt;
+        }
 
         public InterpretesReporte GetInterpretesReporte(List<Interprete> lista)
         {

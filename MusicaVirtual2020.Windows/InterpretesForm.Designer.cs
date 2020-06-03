@@ -33,9 +33,6 @@
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.DatosDataGridView = new System.Windows.Forms.DataGridView();
-            this.cmnInterprete = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cmnPais = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NuevoToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.BorrarToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.EditarToolStripButton = new System.Windows.Forms.ToolStripButton();
@@ -46,6 +43,9 @@
             this.agrupadoXPaísToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.filtradoXPaísToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.CerrarToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.DatosDataGridView = new System.Windows.Forms.DataGridView();
+            this.cmnInterprete = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cmnPais = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DatosDataGridView)).BeginInit();
             this.SuspendLayout();
@@ -94,38 +94,6 @@
             this.toolStrip1.TabIndex = 4;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // DatosDataGridView
-            // 
-            this.DatosDataGridView.AllowUserToAddRows = false;
-            this.DatosDataGridView.AllowUserToDeleteRows = false;
-            this.DatosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DatosDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.cmnInterprete,
-            this.cmnPais});
-            this.DatosDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DatosDataGridView.Location = new System.Drawing.Point(0, 62);
-            this.DatosDataGridView.MultiSelect = false;
-            this.DatosDataGridView.Name = "DatosDataGridView";
-            this.DatosDataGridView.ReadOnly = true;
-            this.DatosDataGridView.RowHeadersVisible = false;
-            this.DatosDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DatosDataGridView.Size = new System.Drawing.Size(800, 388);
-            this.DatosDataGridView.TabIndex = 5;
-            // 
-            // cmnInterprete
-            // 
-            this.cmnInterprete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.cmnInterprete.HeaderText = "Intérprete";
-            this.cmnInterprete.Name = "cmnInterprete";
-            this.cmnInterprete.ReadOnly = true;
-            // 
-            // cmnPais
-            // 
-            this.cmnPais.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.cmnPais.HeaderText = "País";
-            this.cmnPais.Name = "cmnPais";
-            this.cmnPais.ReadOnly = true;
-            // 
             // NuevoToolStripButton
             // 
             this.NuevoToolStripButton.Image = global::MusicaVirtual2020.Windows.Properties.Resources.Nuevo;
@@ -168,6 +136,7 @@
             this.BuscarToolStripButton.Size = new System.Drawing.Size(46, 59);
             this.BuscarToolStripButton.Text = "Buscar";
             this.BuscarToolStripButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.BuscarToolStripButton.Click += new System.EventHandler(this.BuscarToolStripButton_Click);
             // 
             // ActualizarToolStripButton
             // 
@@ -178,6 +147,7 @@
             this.ActualizarToolStripButton.Size = new System.Drawing.Size(63, 59);
             this.ActualizarToolStripButton.Text = "Actualizar";
             this.ActualizarToolStripButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.ActualizarToolStripButton.Click += new System.EventHandler(this.ActualizarToolStripButton_Click);
             // 
             // ImprimirToolStripButton
             // 
@@ -224,6 +194,38 @@
             this.CerrarToolStripButton.Text = "Cerrar";
             this.CerrarToolStripButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.CerrarToolStripButton.Click += new System.EventHandler(this.CerrarToolStripButton_Click);
+            // 
+            // DatosDataGridView
+            // 
+            this.DatosDataGridView.AllowUserToAddRows = false;
+            this.DatosDataGridView.AllowUserToDeleteRows = false;
+            this.DatosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DatosDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.cmnInterprete,
+            this.cmnPais});
+            this.DatosDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DatosDataGridView.Location = new System.Drawing.Point(0, 62);
+            this.DatosDataGridView.MultiSelect = false;
+            this.DatosDataGridView.Name = "DatosDataGridView";
+            this.DatosDataGridView.ReadOnly = true;
+            this.DatosDataGridView.RowHeadersVisible = false;
+            this.DatosDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DatosDataGridView.Size = new System.Drawing.Size(800, 388);
+            this.DatosDataGridView.TabIndex = 5;
+            // 
+            // cmnInterprete
+            // 
+            this.cmnInterprete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.cmnInterprete.HeaderText = "Intérprete";
+            this.cmnInterprete.Name = "cmnInterprete";
+            this.cmnInterprete.ReadOnly = true;
+            // 
+            // cmnPais
+            // 
+            this.cmnPais.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.cmnPais.HeaderText = "País";
+            this.cmnPais.Name = "cmnPais";
+            this.cmnPais.ReadOnly = true;
             // 
             // InterpretesForm
             // 
