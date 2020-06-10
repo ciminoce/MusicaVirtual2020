@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MusicaVirtual2020.Windows
@@ -65,6 +58,19 @@ namespace MusicaVirtual2020.Windows
         private void SoportesToolStripButton_Click(object sender, EventArgs e)
         {
             SoportesForm frm = SoportesForm.GetInstancia();
+
+            frm.MdiParent = this;
+            frm.WindowState = FormWindowState.Maximized;
+            frm.Dock = DockStyle.Fill;
+
+
+            frm.Show();
+
+        }
+
+        private void NegociosToolStripButton_Click(object sender, EventArgs e)
+        {
+            NegociosForm frm = NegociosForm.GetInstancia();
 
             frm.MdiParent = this;
             frm.WindowState = FormWindowState.Maximized;

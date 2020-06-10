@@ -95,6 +95,18 @@
     <Compile Include="MenuPrincipalForm.Designer.cs">
       <DependentUpon>MenuPrincipalForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="NegociosAEForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NegociosAEForm.Designer.cs">
+      <DependentUpon>NegociosAEForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NegociosForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NegociosForm.Designer.cs">
+      <DependentUpon>NegociosForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="PaisesAEForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -153,6 +165,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MenuPrincipalForm.resx">
       <DependentUpon>MenuPrincipalForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NegociosAEForm.resx">
+      <DependentUpon>NegociosAEForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NegociosForm.resx">
+      <DependentUpon>NegociosForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PaisesAEForm.resx">
       <DependentUpon>PaisesAEForm.cs</DependentUpon>
