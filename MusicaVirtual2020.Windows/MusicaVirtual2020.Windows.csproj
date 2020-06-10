@@ -121,6 +121,18 @@
     <Compile Include="ReportesForm.Designer.cs">
       <DependentUpon>ReportesForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="SoportesAEForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SoportesAEForm.Designer.cs">
+      <DependentUpon>SoportesAEForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SoportesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SoportesForm.Designer.cs">
+      <DependentUpon>SoportesForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AlbumesAEForm.resx">
       <DependentUpon>AlbumesAEForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -163,6 +175,12 @@
     </Compile>
     <EmbeddedResource Include="ReportesForm.resx">
       <DependentUpon>ReportesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SoportesAEForm.resx">
+      <DependentUpon>SoportesAEForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SoportesForm.resx">
+      <DependentUpon>SoportesForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

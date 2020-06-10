@@ -7,19 +7,19 @@ using MusicaVirtual2020.Servicios;
 
 namespace MusicaVirtual2020.Windows
 {
-    public partial class PaisesForm : Form
+    public partial class SoportesForm : Form
     {
-        private static PaisesForm instancia = null;
-        private PaisesForm()
+        private SoportesForm()
         {
             InitializeComponent();
         }
+        private static SoportesForm instancia = null;
 
-        public static PaisesForm GetInstancia()
+        public static SoportesForm GetInstancia()
         {
-            if (instancia==null)
+            if (instancia == null)
             {
-                instancia=new PaisesForm();
+                instancia = new SoportesForm();
                 instancia.FormClosed += form_Close;
             }
 
@@ -36,15 +36,15 @@ namespace MusicaVirtual2020.Windows
             Close();
         }
 
-        private ServicioPais servicio;
-        private List<Pais> lista;
+        private ServicioSoporte servicio;
+        private List<Soporte> lista;
 
-        private void PaisesForm_Load(object sender, EventArgs e)
+        private void SoportesForm_Load(object sender, EventArgs e)
         {
             this.Dock = DockStyle.Fill;
             try
             {
-                servicio = new ServicioPais();
+                servicio = new ServicioSoporte();
                 lista = servicio.GetLista();
                 MostrarDatosEnGrilla();
             }
@@ -58,10 +58,10 @@ namespace MusicaVirtual2020.Windows
         private void MostrarDatosEnGrilla()
         {
             DatosDataGridView.Rows.Clear();
-            foreach (var pais in lista)
+            foreach (var soporte in lista)
             {
                 DataGridViewRow r = ConstruirFila();
-                SetearFila(r, pais);
+                SetearFila(r, soporte);
                 AgregarFila(r);
 
             }
@@ -72,11 +72,11 @@ namespace MusicaVirtual2020.Windows
             DatosDataGridView.Rows.Add(r);
         }
 
-        private void SetearFila(DataGridViewRow r, Pais pais)
+        private void SetearFila(DataGridViewRow r, Soporte soporte)
         {
-            r.Cells[cmnPais.Index].Value = pais.Nombre;
+            r.Cells[cmnSoporte.Index].Value = soporte.Descripcion;
 
-            r.Tag = pais;
+            r.Tag = soporte;
         }
 
         private DataGridViewRow ConstruirFila()
@@ -88,29 +88,29 @@ namespace MusicaVirtual2020.Windows
 
         private void NuevoToolStripButton_Click(object sender, EventArgs e)
         {
-            PaisesAEForm frm=new PaisesAEForm();
+            SoportesAEForm frm = new SoportesAEForm();
             frm.Text = "Agregar País";
             DialogResult dr = frm.ShowDialog(this);
-            if (dr==DialogResult.OK)
+            if (dr == DialogResult.OK)
             {
                 try
                 {
-                    Pais pais = frm.GetPais();
-                    if (!servicio.Existe(pais))
+                    Soporte soporte = frm.GetSoporte();
+                    if (!servicio.Existe(soporte))
                     {
-                        servicio.Agregar(pais);
+                        servicio.Agregar(soporte);
                         var r = ConstruirFila();
-                        SetearFila(r,pais);
+                        SetearFila(r, soporte);
                         AgregarFila(r);
                         MessageBox.Show("Registro agregado", "Mensaje",
                             MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        
+
                     }
                     else
                     {
                         MessageBox.Show("Registro Duplicado... Alta denegada", "Error",
                             MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        
+
                     }
 
                 }
@@ -126,22 +126,22 @@ namespace MusicaVirtual2020.Windows
 
         private void BorrarToolStripButton_Click(object sender, EventArgs e)
         {
-            if (DatosDataGridView.SelectedRows.Count>0)
+            if (DatosDataGridView.SelectedRows.Count > 0)
             {
                 var r = DatosDataGridView.SelectedRows[0];
-                Pais pais =(Pais) r.Tag;
-                DialogResult dr = MessageBox.Show($"¿Desea borrar de la lista a {pais.Nombre}?",
+                Soporte soporte = (Soporte)r.Tag;
+                DialogResult dr = MessageBox.Show($"¿Desea borrar de la lista a {soporte.Descripcion}?",
                     "Confirmar Baja",
                     MessageBoxButtons.YesNo,
                     MessageBoxIcon.Question);
-                if (dr==DialogResult.Yes)
+                if (dr == DialogResult.Yes)
                 {
                     try
                     {
 
-                        if (!servicio.EstaRelacionado(pais))
+                        if (!servicio.EstaRelacionado(soporte))
                         {
-                            servicio.Borrar(pais);
+                            servicio.Borrar(soporte);
                             DatosDataGridView.Rows.Remove(r);
                             MessageBox.Show("Registro Borrado", "Mensaje",
                                 MessageBoxButtons.OK,
@@ -161,7 +161,7 @@ namespace MusicaVirtual2020.Windows
                         MessageBox.Show(exception.Message, "Error",
                             MessageBoxButtons.OK,
                             MessageBoxIcon.Error);
-                        
+
                     }
                 }
             }
@@ -169,37 +169,37 @@ namespace MusicaVirtual2020.Windows
 
         private void EditarToolStripButton_Click(object sender, EventArgs e)
         {
-            if (DatosDataGridView.SelectedRows.Count>0)
+            if (DatosDataGridView.SelectedRows.Count > 0)
             {
                 var r = DatosDataGridView.SelectedRows[0];
-                Pais p =(Pais) r.Tag;
-                Pais pCopia =(Pais) p.Clone();
-                PaisesAEForm frm=new PaisesAEForm();
+                Soporte p = (Soporte)r.Tag;
+                Soporte pCopia = (Soporte)p.Clone();
+                SoportesAEForm frm = new SoportesAEForm();
                 frm.Text = "Editar País";
-                frm.SetPais(p);
+                frm.SetSoporte(p);
                 DialogResult dr = frm.ShowDialog(this);
-                if (dr==DialogResult.OK)
+                if (dr == DialogResult.OK)
                 {
                     try
                     {
-                        p = frm.GetPais();
+                        p = frm.GetSoporte();
                         if (!servicio.Existe(p))
                         {
                             servicio.Editar(p);
-                            SetearFila(r,p);
+                            SetearFila(r, p);
                             MessageBox.Show("Registro editado", "Mensaje", MessageBoxButtons.OK,
                                 MessageBoxIcon.Information);
                         }
                         else
                         {
-                            MessageBox.Show("Registro duplicado...\nEdición denegada","Error",
-                                MessageBoxButtons.OK,MessageBoxIcon.Warning);
-                            SetearFila(r,pCopia);
+                            MessageBox.Show("Registro duplicado...\nEdición denegada", "Error",
+                                MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            SetearFila(r, pCopia);
                         }
                     }
                     catch (Exception exception)
                     {
-                            MessageBox.Show(exception.Message,"Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                        MessageBox.Show(exception.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
@@ -209,17 +209,17 @@ namespace MusicaVirtual2020.Windows
         {
             try
             {
-                //Se solicita el listado de países a la bd
-                lista = servicio.GetLista();
-                //Instancio el manejador de reportes que se encarga de crear el rpt
-                var manejadorReportes=new ManejadorDeReportes();
-                /*Defino y asigno a la variable rpt de tipo PaisesReporte el reporte
-                 con los datos provenientes de la capa de reportes*/
-                PaisesReporte rpt = manejadorReportes.GetPaisesReporte(lista);
-                //instancio el formulario donse se va a mostrar el rpt
-                ReportesForm frm=new ReportesForm();
-                frm.SetReporte(rpt);//Uso el método SetReporte para pasar el reporte al form
-                frm.ShowDialog(this);//Muestro el formulario
+                ////Se solicita el listado de países a la bd
+                //lista = servicio.GetLista();
+                ////Instancio el manejador de reportes que se encarga de crear el rpt
+                //var manejadorReportes = new ManejadorDeReportes();
+                ///*Defino y asigno a la variable rpt de tipo SoporteesReporte el reporte
+                // con los datos provenientes de la capa de reportes*/
+                //SoporteesReporte rpt = manejadorReportes.GetSoporteesReporte(lista);
+                ////instancio el formulario donse se va a mostrar el rpt
+                //ReportesForm frm = new ReportesForm();
+                //frm.SetReporte(rpt);//Uso el método SetReporte para pasar el reporte al form
+                //frm.ShowDialog(this);//Muestro el formulario
             }
             catch (Exception exception)
             {
@@ -227,5 +227,6 @@ namespace MusicaVirtual2020.Windows
                 throw;
             }
         }
+
     }
 }

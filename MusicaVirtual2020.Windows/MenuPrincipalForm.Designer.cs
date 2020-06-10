@@ -239,6 +239,7 @@
             this.SoportesToolStripButton.Size = new System.Drawing.Size(52, 52);
             this.SoportesToolStripButton.Text = "toolStripButton4";
             this.SoportesToolStripButton.ToolTipText = "Soportes";
+            this.SoportesToolStripButton.Click += new System.EventHandler(this.SoportesToolStripButton_Click);
             // 
             // toolStripSeparator6
             // 

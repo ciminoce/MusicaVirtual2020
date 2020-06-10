@@ -45,6 +45,7 @@
     <Compile Include="ServicioEstilo.cs" />
     <Compile Include="ServicioInterprete.cs" />
     <Compile Include="ServicioPais.cs" />
+    <Compile Include="ServicioSoporte.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MusicaVirtual2020.Datos\MusicaVirtual2020.Datos.csproj">

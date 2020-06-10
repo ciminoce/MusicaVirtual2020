@@ -5,107 +5,107 @@ using MusicaVirtual2020.Entidades;
 
 namespace MusicaVirtual2020.Servicios
 {
-    public class ServicioPais
+    public class ServicioSoporte
     {
         private ConexionBd _conexion;
-        private RepositorioPaises _repositorio;
+        private RepositorioSoportes _repositorio;
 
-        public ServicioPais()
+        public ServicioSoporte()
         {
-            
+
         }
 
-        public List<Pais> GetLista()
+        public List<Soporte> GetLista()
         {
             try
             {
-                _conexion=new ConexionBd();
-                _repositorio=new RepositorioPaises(_conexion.AbrirConexion());
+                _conexion = new ConexionBd();
+                _repositorio = new RepositorioSoportes(_conexion.AbrirConexion());
                 var lista = _repositorio.GetLista();
                 _conexion.CerrarConexion();
                 return lista;
             }
             catch (Exception e)
             {
-                
+
                 throw new Exception(e.Message);
             }
         }
 
-        public void Agregar(Pais pais)
+        public void Agregar(Soporte soporte)
         {
             try
             {
-                _conexion=new ConexionBd();
-                _repositorio=new RepositorioPaises(_conexion.AbrirConexion());
-                _repositorio.Agregar(pais);
+                _conexion = new ConexionBd();
+                _repositorio = new RepositorioSoportes(_conexion.AbrirConexion());
+                _repositorio.Agregar(soporte);
                 _conexion.CerrarConexion();
 
             }
             catch (Exception e)
             {
-                
+
                 throw new Exception(e.Message);
             }
         }
 
-        public bool Existe(Pais pais)
+        public bool Existe(Soporte soporte)
         {
             try
             {
-                _conexion=new ConexionBd();
-                _repositorio=new RepositorioPaises(_conexion.AbrirConexion());
-                 var existe=_repositorio.Existe(pais);
-                 _conexion.CerrarConexion();
-                 return existe;
+                _conexion = new ConexionBd();
+                _repositorio = new RepositorioSoportes(_conexion.AbrirConexion());
+                var existe = _repositorio.Existe(soporte);
+                _conexion.CerrarConexion();
+                return existe;
             }
             catch (Exception e)
             {
-                
+
                 throw new Exception(e.Message);
             }
         }
 
-        public bool EstaRelacionado(Pais pais)
+        public bool EstaRelacionado(Soporte soporte)
         {
             try
             {
-                _conexion=new ConexionBd();
-                _repositorio=new RepositorioPaises(_conexion.AbrirConexion());
-                var estaRelacionado=_repositorio.EstaRelacionado(pais);
+                _conexion = new ConexionBd();
+                _repositorio = new RepositorioSoportes(_conexion.AbrirConexion());
+                var estaRelacionado = _repositorio.EstaRelacionado(soporte);
                 _conexion.CerrarConexion();
                 return estaRelacionado;
             }
             catch (Exception e)
             {
-                
+
                 throw new Exception(e.Message);
             }
         }
-        public void Borrar(Pais pais)
+        public void Borrar(Soporte soporte)
         {
             try
             {
-                _conexion=new ConexionBd();
-                _repositorio=new RepositorioPaises(_conexion.AbrirConexion());
-                _repositorio.Borrar(pais);
+                _conexion = new ConexionBd();
+                _repositorio = new RepositorioSoportes(_conexion.AbrirConexion());
+                _repositorio.Borrar(soporte);
                 _conexion.CerrarConexion();
-                
+
             }
             catch (Exception e)
             {
-                
+
                 throw new Exception(e.Message);
             }
         }
 
-        public void Editar(Pais pais)
+        public void Editar(Soporte soporte)
         {
             try
             {
-                _conexion=new ConexionBd();
-                _repositorio=new RepositorioPaises(_conexion.AbrirConexion());
-                _repositorio.Editar(pais);
+                _conexion = new ConexionBd();
+                _repositorio = new RepositorioSoportes(_conexion.AbrirConexion());
+                _repositorio.Editar(soporte);
                 _conexion.CerrarConexion();
             }
             catch (Exception e)
@@ -113,5 +113,6 @@ namespace MusicaVirtual2020.Servicios
                 throw new Exception(e.Message);
             }
         }
+
     }
 }

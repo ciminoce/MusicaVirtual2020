@@ -4,14 +4,13 @@ using MusicaVirtual2020.Entidades;
 
 namespace MusicaVirtual2020.Windows
 {
-    public partial class PaisesAEForm : Form
+    public partial class SoportesAEForm : Form
     {
-        public PaisesAEForm()
+        public SoportesAEForm()
         {
             InitializeComponent();
         }
-
-        private Pais pais;
+        private Soporte soporte;
         private void CancelButton_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.Cancel;
@@ -20,9 +19,9 @@ namespace MusicaVirtual2020.Windows
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
-            if (pais!=null)
+            if (soporte != null)
             {
-                PaisTextBox.Text = pais.Nombre;
+                soporteTextBox.Text = soporte.Descripcion;
             }
         }
 
@@ -30,12 +29,12 @@ namespace MusicaVirtual2020.Windows
         {
             if (ValidarDatos())
             {
-                if (pais==null)
+                if (soporte == null)
                 {
-                    pais=new Pais();
+                    soporte = new Soporte();
                 }
 
-                pais.Nombre = PaisTextBox.Text.Trim();
+                soporte.Descripcion = soporteTextBox.Text.Trim();
                 DialogResult = DialogResult.OK;
             }
         }
@@ -43,23 +42,23 @@ namespace MusicaVirtual2020.Windows
         private bool ValidarDatos()
         {
             bool valido = true;
-            if (string.IsNullOrEmpty(PaisTextBox.Text.Trim()))
+            if (string.IsNullOrEmpty(soporteTextBox.Text.Trim()))
             {
                 valido = false;
-                errorProvider1.SetError(PaisTextBox,"Debe ingresar un país");
+                errorProvider1.SetError(soporteTextBox, "Debe ingresar un soporte");
             }
 
             return valido;
         }
 
-        public Pais GetPais()
+        public void SetSoporte(Soporte soporte)
         {
-            return pais;
+            this.soporte = soporte;
         }
 
-        public void SetPais(Pais pais)
+        public Soporte GetSoporte()
         {
-            this.pais = pais;
+            return soporte;
         }
     }
 }
