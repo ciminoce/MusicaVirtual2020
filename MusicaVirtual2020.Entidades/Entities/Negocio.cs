@@ -1,10 +1,10 @@
 ﻿using System;
 
-namespace MusicaVirtual2020.Entidades
+namespace MusicaVirtual2020.Entidades.Entities
 {
-    public class Interprete:ICloneable
+    public class Negocio:ICloneable
     {
-        public int InterpreteId { get; set; }
+        public int NegocioId { get; set; }
         public string Nombre { get; set; }
         public Pais Pais { get; set; }
         public object Clone()

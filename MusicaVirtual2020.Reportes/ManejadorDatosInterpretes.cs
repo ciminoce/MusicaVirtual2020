@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Runtime.Remoting.Messaging;
 using MusicaVirtual2020.Entidades;
+using MusicaVirtual2020.Entidades.Entities;
 
 namespace MusicaVirtual2020.Reportes
 {

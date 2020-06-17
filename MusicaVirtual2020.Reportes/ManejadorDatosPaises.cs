@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MusicaVirtual2020.Entidades;
+using MusicaVirtual2020.Entidades.Entities;
 
 namespace MusicaVirtual2020.Reportes
 {

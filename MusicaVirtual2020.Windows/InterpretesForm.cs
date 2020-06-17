@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using MusicaVirtual2020.Entidades;
+using MusicaVirtual2020.Entidades.Entities;
 using MusicaVirtual2020.Reportes;
 using MusicaVirtual2020.Servicios;
 

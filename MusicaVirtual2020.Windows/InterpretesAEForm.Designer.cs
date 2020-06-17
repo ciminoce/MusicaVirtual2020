@@ -111,6 +111,7 @@
             this.agregarPaisButton.Size = new System.Drawing.Size(31, 30);
             this.agregarPaisButton.TabIndex = 13;
             this.agregarPaisButton.UseVisualStyleBackColor = true;
+            this.agregarPaisButton.Click += new System.EventHandler(this.agregarPaisButton_Click);
             // 
             // InterpretesAEForm
             // 

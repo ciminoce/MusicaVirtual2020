@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MusicaVirtual2020.Entidades
+namespace MusicaVirtual2020.Entidades.Entities
 {
     public class Soporte:ICloneable
     {

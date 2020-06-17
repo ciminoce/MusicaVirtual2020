@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Windows.Forms;
 using MusicaVirtual2020.Entidades;
+using MusicaVirtual2020.Entidades.Entities;
 using MusicaVirtual2020.Servicios;
+using MusicaVirtual2020.Windows.Helpers;
 
 namespace MusicaVirtual2020.Windows
 {
@@ -14,19 +16,7 @@ namespace MusicaVirtual2020.Windows
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
-            ServicioPais servicioPais = new ServicioPais();
-            var listaPais = servicioPais.GetLista();
-            var defaultPais = new Pais
-            {
-                PaisId = 0,
-                Nombre = "<Seleccione País>"
-            };
-            listaPais.Insert(0, defaultPais);
-            paisesComboBox.DataSource = listaPais;
-            paisesComboBox.DisplayMember = "Nombre";
-            paisesComboBox.ValueMember = "PaisId";
-            paisesComboBox.SelectedIndex = 0;
-
+            Helper.CargarDatosComboPaises(ref paisesComboBox);
             if (negocio != null)
             {
                 negocioTextBox.Text = negocio.Nombre;

@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Windows.Forms;
 using MusicaVirtual2020.Entidades;
+using MusicaVirtual2020.Entidades.Entities;
 using MusicaVirtual2020.Servicios;
+using MusicaVirtual2020.Windows.Helpers;
 
 namespace MusicaVirtual2020.Windows
 {
@@ -10,19 +12,7 @@ namespace MusicaVirtual2020.Windows
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
-            ServicioPais servicioPais=new ServicioPais();
-            var listaPais = servicioPais.GetLista();
-            var defaultPais = new Pais
-            {
-                PaisId = 0,
-                Nombre = "<Seleccione País>"
-            };
-            listaPais.Insert(0,defaultPais);
-            paisesComboBox.DataSource = listaPais;
-            paisesComboBox.DisplayMember = "Nombre";
-            paisesComboBox.ValueMember = "PaisId";
-            paisesComboBox.SelectedIndex = 0;
-
+            Helper.CargarDatosComboPaises(ref paisesComboBox);
             if (interprete!=null)
             {
                 interpreteTextBox.Text = interprete.Nombre;
@@ -85,6 +75,38 @@ namespace MusicaVirtual2020.Windows
         public void SetInterprete(Interprete interprete)
         {
             this.interprete = interprete;
+        }
+
+        private void agregarPaisButton_Click(object sender, EventArgs e)
+        {
+            PaisesAEForm frm=new PaisesAEForm();
+            frm.Text = "Agregar País...";
+            DialogResult dr = frm.ShowDialog(this);
+            if (dr==DialogResult.OK)
+            {
+                try
+                {
+                    ServicioPais servicioPais=new ServicioPais();
+                    Pais pais = frm.GetPais();
+                    if (!servicioPais.Existe(pais))
+                    {
+                        servicioPais.Agregar(pais);
+                        Helper.CargarDatosComboPaises(ref paisesComboBox);
+                    }
+                    else
+                    {
+                        MessageBox.Show("País repetido", "Error",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Error);
+                    }
+                }
+                catch (Exception exception)
+                {
+                    MessageBox.Show(exception.Message, "Error",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+                }
+            }
         }
     }
 }

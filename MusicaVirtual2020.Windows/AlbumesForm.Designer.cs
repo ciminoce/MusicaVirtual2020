@@ -30,7 +30,6 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.DatosDataGridView = new System.Windows.Forms.DataGridView();
-            this.cmnEstilo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.NuevoToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.BorrarToolStripButton = new System.Windows.Forms.ToolStripButton();
@@ -43,6 +42,9 @@
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.CerrarToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
+            this.cmnAlbum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cmnInterprete = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cmnPistas = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DatosDataGridView)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -55,7 +57,9 @@
             this.DatosDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.DatosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DatosDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.cmnEstilo});
+            this.cmnAlbum,
+            this.cmnInterprete,
+            this.cmnPistas});
             this.DatosDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DatosDataGridView.Location = new System.Drawing.Point(0, 62);
             this.DatosDataGridView.MultiSelect = false;
@@ -65,13 +69,6 @@
             this.DatosDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DatosDataGridView.Size = new System.Drawing.Size(939, 548);
             this.DatosDataGridView.TabIndex = 5;
-            // 
-            // cmnEstilo
-            // 
-            this.cmnEstilo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.cmnEstilo.HeaderText = "Estilo";
-            this.cmnEstilo.Name = "cmnEstilo";
-            this.cmnEstilo.ReadOnly = true;
             // 
             // toolStrip1
             // 
@@ -187,6 +184,26 @@
             this.toolStripLabel1.Size = new System.Drawing.Size(89, 59);
             this.toolStripLabel1.Text = "Álbumes";
             // 
+            // cmnAlbum
+            // 
+            this.cmnAlbum.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.cmnAlbum.HeaderText = "Album";
+            this.cmnAlbum.Name = "cmnAlbum";
+            this.cmnAlbum.ReadOnly = true;
+            // 
+            // cmnInterprete
+            // 
+            this.cmnInterprete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.cmnInterprete.HeaderText = "Intérprete";
+            this.cmnInterprete.Name = "cmnInterprete";
+            this.cmnInterprete.ReadOnly = true;
+            // 
+            // cmnPistas
+            // 
+            this.cmnPistas.HeaderText = "Pistas";
+            this.cmnPistas.Name = "cmnPistas";
+            this.cmnPistas.ReadOnly = true;
+            // 
             // AlbumesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -209,7 +226,6 @@
         #endregion
 
         private System.Windows.Forms.DataGridView DatosDataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cmnEstilo;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton NuevoToolStripButton;
         private System.Windows.Forms.ToolStripButton BorrarToolStripButton;
@@ -222,5 +238,8 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripButton CerrarToolStripButton;
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cmnAlbum;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cmnInterprete;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cmnPistas;
     }
 }
