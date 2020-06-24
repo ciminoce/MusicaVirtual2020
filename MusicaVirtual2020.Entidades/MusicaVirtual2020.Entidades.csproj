@@ -41,12 +41,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DTOs\Album\AlbumEditDto.cs" />
     <Compile Include="DTOs\Album\AlbumListDto.cs" />
+    <Compile Include="DTOs\Estilo\EstiloListDto.cs" />
+    <Compile Include="DTOs\Interprete\InterpreteListDto.cs" />
+    <Compile Include="DTOs\Negocio\NegocioListDto.cs" />
+    <Compile Include="DTOs\Soporte\SoporteListDto.cs" />
+    <Compile Include="DTOs\Tema\TemaListDto.cs" />
     <Compile Include="Entities\Album.cs" />
     <Compile Include="Entities\Estilo.cs" />
     <Compile Include="Entities\Interprete.cs" />
     <Compile Include="Entities\Negocio.cs" />
     <Compile Include="Entities\Pais.cs" />
+    <Compile Include="Mapas\Mapeador.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Entities\Soporte.cs" />
     <Compile Include="Entities\Tema.cs" />

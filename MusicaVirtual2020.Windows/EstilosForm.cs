@@ -4,6 +4,7 @@ using System.Windows.Forms;
 using MusicaVirtual2020.Entidades;
 using MusicaVirtual2020.Entidades.Entities;
 using MusicaVirtual2020.Servicios;
+using MusicaVirtual2020.Windows.Helpers;
 
 namespace MusicaVirtual2020.Windows
 {
@@ -102,16 +103,11 @@ namespace MusicaVirtual2020.Windows
                     DataGridViewRow r = ConstruirFila();
                     SetearFila(r,estilo);
                     AgregarFila(r);
-                    MessageBox.Show("Registro agregado con éxito",
-                        "Mensaje",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Information);
+                    Helper.mensajeBox("Registro agregado con éxito", Tipo.Success);
                 }
                 catch (Exception exception)
                 {
-                    MessageBox.Show(exception.Message, "Error",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Error);
+                    Helper.mensajeBox(exception.Message, Tipo.Error);
                 }
             }
         }

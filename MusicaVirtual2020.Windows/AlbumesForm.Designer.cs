@@ -28,8 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.DatosDataGridView = new System.Windows.Forms.DataGridView();
+            this.cmnAlbum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cmnInterprete = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cmnPistas = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.NuevoToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.BorrarToolStripButton = new System.Windows.Forms.ToolStripButton();
@@ -42,9 +45,6 @@
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.CerrarToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
-            this.cmnAlbum = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cmnInterprete = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cmnPistas = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DatosDataGridView)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -53,8 +53,8 @@
             // 
             this.DatosDataGridView.AllowUserToAddRows = false;
             this.DatosDataGridView.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DatosDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DatosDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.DatosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DatosDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.cmnAlbum,
@@ -69,6 +69,26 @@
             this.DatosDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DatosDataGridView.Size = new System.Drawing.Size(939, 548);
             this.DatosDataGridView.TabIndex = 5;
+            // 
+            // cmnAlbum
+            // 
+            this.cmnAlbum.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.cmnAlbum.HeaderText = "Album";
+            this.cmnAlbum.Name = "cmnAlbum";
+            this.cmnAlbum.ReadOnly = true;
+            // 
+            // cmnInterprete
+            // 
+            this.cmnInterprete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.cmnInterprete.HeaderText = "Intérprete";
+            this.cmnInterprete.Name = "cmnInterprete";
+            this.cmnInterprete.ReadOnly = true;
+            // 
+            // cmnPistas
+            // 
+            this.cmnPistas.HeaderText = "Pistas";
+            this.cmnPistas.Name = "cmnPistas";
+            this.cmnPistas.ReadOnly = true;
             // 
             // toolStrip1
             // 
@@ -99,6 +119,7 @@
             this.NuevoToolStripButton.Size = new System.Drawing.Size(46, 59);
             this.NuevoToolStripButton.Text = "Nuevo";
             this.NuevoToolStripButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.NuevoToolStripButton.Click += new System.EventHandler(this.NuevoToolStripButton_Click);
             // 
             // BorrarToolStripButton
             // 
@@ -174,6 +195,7 @@
             this.CerrarToolStripButton.Size = new System.Drawing.Size(44, 59);
             this.CerrarToolStripButton.Text = "Cerrar";
             this.CerrarToolStripButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.CerrarToolStripButton.Click += new System.EventHandler(this.CerrarToolStripButton_Click);
             // 
             // toolStripLabel1
             // 
@@ -183,26 +205,6 @@
             this.toolStripLabel1.Name = "toolStripLabel1";
             this.toolStripLabel1.Size = new System.Drawing.Size(89, 59);
             this.toolStripLabel1.Text = "Álbumes";
-            // 
-            // cmnAlbum
-            // 
-            this.cmnAlbum.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.cmnAlbum.HeaderText = "Album";
-            this.cmnAlbum.Name = "cmnAlbum";
-            this.cmnAlbum.ReadOnly = true;
-            // 
-            // cmnInterprete
-            // 
-            this.cmnInterprete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.cmnInterprete.HeaderText = "Intérprete";
-            this.cmnInterprete.Name = "cmnInterprete";
-            this.cmnInterprete.ReadOnly = true;
-            // 
-            // cmnPistas
-            // 
-            this.cmnPistas.HeaderText = "Pistas";
-            this.cmnPistas.Name = "cmnPistas";
-            this.cmnPistas.ReadOnly = true;
             // 
             // AlbumesForm
             // 
@@ -215,6 +217,7 @@
             this.Name = "AlbumesForm";
             this.Text = "AlbumesForm";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.AlbumesForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DatosDataGridView)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();

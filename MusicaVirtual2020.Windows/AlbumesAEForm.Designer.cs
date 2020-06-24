@@ -28,8 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.CancelButton = new System.Windows.Forms.Button();
+            this.OkButton = new System.Windows.Forms.Button();
+            this.temasDatosGridView = new System.Windows.Forms.DataGridView();
+            this.cmnNro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cmnTema = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cmnDuracion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cmnBorrar = new System.Windows.Forms.DataGridViewImageColumn();
+            this.cmnEditar = new System.Windows.Forms.DataGridViewImageColumn();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label10 = new System.Windows.Forms.Label();
             this.agregarTemaButton = new System.Windows.Forms.Button();
@@ -56,33 +66,115 @@
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.CancelButton = new System.Windows.Forms.Button();
-            this.OkButton = new System.Windows.Forms.Button();
-            this.DatosGridView = new System.Windows.Forms.DataGridView();
-            this.cmnNro = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cmnTema = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cmnDuracion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cmnBorrar = new System.Windows.Forms.DataGridViewImageColumn();
-            this.cmnEditar = new System.Windows.Forms.DataGridViewImageColumn();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel5.SuspendLayout();
+            this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.temasDatosGridView)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pistasNumericUpDown)).BeginInit();
             this.panel1.SuspendLayout();
-            this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DatosGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel5
             // 
             this.panel5.Controls.Add(this.panel4);
-            this.panel5.Controls.Add(this.DatosGridView);
+            this.panel5.Controls.Add(this.temasDatosGridView);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel5.Location = new System.Drawing.Point(0, 355);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(984, 406);
             this.panel5.TabIndex = 8;
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.CancelButton);
+            this.panel4.Controls.Add(this.OkButton);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel4.Location = new System.Drawing.Point(0, 330);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(984, 76);
+            this.panel4.TabIndex = 5;
+            // 
+            // CancelButton
+            // 
+            this.CancelButton.Image = global::MusicaVirtual2020.Windows.Properties.Resources.Cancelar;
+            this.CancelButton.Location = new System.Drawing.Point(566, 12);
+            this.CancelButton.Name = "CancelButton";
+            this.CancelButton.Size = new System.Drawing.Size(94, 53);
+            this.CancelButton.TabIndex = 3;
+            this.CancelButton.Text = "Cancelar";
+            this.CancelButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.CancelButton.UseVisualStyleBackColor = true;
+            this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
+            // 
+            // OkButton
+            // 
+            this.OkButton.Image = global::MusicaVirtual2020.Windows.Properties.Resources.Aceptar;
+            this.OkButton.Location = new System.Drawing.Point(325, 12);
+            this.OkButton.Name = "OkButton";
+            this.OkButton.Size = new System.Drawing.Size(94, 53);
+            this.OkButton.TabIndex = 4;
+            this.OkButton.Text = "OK";
+            this.OkButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.OkButton.UseVisualStyleBackColor = true;
+            this.OkButton.Click += new System.EventHandler(this.OkButton_Click);
+            // 
+            // temasDatosGridView
+            // 
+            this.temasDatosGridView.AllowUserToAddRows = false;
+            this.temasDatosGridView.AllowUserToDeleteRows = false;
+            this.temasDatosGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.temasDatosGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.cmnNro,
+            this.cmnTema,
+            this.cmnDuracion,
+            this.cmnBorrar,
+            this.cmnEditar});
+            this.temasDatosGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.temasDatosGridView.Location = new System.Drawing.Point(0, 0);
+            this.temasDatosGridView.MultiSelect = false;
+            this.temasDatosGridView.Name = "temasDatosGridView";
+            this.temasDatosGridView.ReadOnly = true;
+            this.temasDatosGridView.RowHeadersVisible = false;
+            this.temasDatosGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.temasDatosGridView.Size = new System.Drawing.Size(984, 406);
+            this.temasDatosGridView.TabIndex = 4;
+            // 
+            // cmnNro
+            // 
+            this.cmnNro.HeaderText = "Nro";
+            this.cmnNro.Name = "cmnNro";
+            this.cmnNro.ReadOnly = true;
+            // 
+            // cmnTema
+            // 
+            this.cmnTema.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.cmnTema.HeaderText = "Tema";
+            this.cmnTema.Name = "cmnTema";
+            this.cmnTema.ReadOnly = true;
+            // 
+            // cmnDuracion
+            // 
+            dataGridViewCellStyle5.Format = "N2";
+            dataGridViewCellStyle5.NullValue = null;
+            this.cmnDuracion.DefaultCellStyle = dataGridViewCellStyle5;
+            this.cmnDuracion.HeaderText = "Duración";
+            this.cmnDuracion.Name = "cmnDuracion";
+            this.cmnDuracion.ReadOnly = true;
+            // 
+            // cmnBorrar
+            // 
+            this.cmnBorrar.HeaderText = "";
+            this.cmnBorrar.Name = "cmnBorrar";
+            this.cmnBorrar.ReadOnly = true;
+            // 
+            // cmnEditar
+            // 
+            this.cmnEditar.HeaderText = "";
+            this.cmnEditar.Name = "cmnEditar";
+            this.cmnEditar.ReadOnly = true;
             // 
             // panel3
             // 
@@ -108,6 +200,7 @@
             // 
             // agregarTemaButton
             // 
+            this.agregarTemaButton.Enabled = false;
             this.agregarTemaButton.Image = global::MusicaVirtual2020.Windows.Properties.Resources.AgregarAE;
             this.agregarTemaButton.Location = new System.Drawing.Point(941, 14);
             this.agregarTemaButton.Name = "agregarTemaButton";
@@ -273,6 +366,7 @@
             this.costoTextBox.Name = "costoTextBox";
             this.costoTextBox.Size = new System.Drawing.Size(90, 20);
             this.costoTextBox.TabIndex = 1;
+            this.costoTextBox.Text = "0";
             // 
             // label8
             // 
@@ -336,92 +430,9 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Album";
             // 
-            // panel4
+            // errorProvider1
             // 
-            this.panel4.Controls.Add(this.CancelButton);
-            this.panel4.Controls.Add(this.OkButton);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel4.Location = new System.Drawing.Point(0, 330);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(984, 76);
-            this.panel4.TabIndex = 5;
-            // 
-            // CancelButton
-            // 
-            this.CancelButton.Image = global::MusicaVirtual2020.Windows.Properties.Resources.Cancelar;
-            this.CancelButton.Location = new System.Drawing.Point(566, 12);
-            this.CancelButton.Name = "CancelButton";
-            this.CancelButton.Size = new System.Drawing.Size(94, 53);
-            this.CancelButton.TabIndex = 3;
-            this.CancelButton.Text = "Cancelar";
-            this.CancelButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.CancelButton.UseVisualStyleBackColor = true;
-            // 
-            // OkButton
-            // 
-            this.OkButton.Image = global::MusicaVirtual2020.Windows.Properties.Resources.Aceptar;
-            this.OkButton.Location = new System.Drawing.Point(325, 12);
-            this.OkButton.Name = "OkButton";
-            this.OkButton.Size = new System.Drawing.Size(94, 53);
-            this.OkButton.TabIndex = 4;
-            this.OkButton.Text = "OK";
-            this.OkButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.OkButton.UseVisualStyleBackColor = true;
-            // 
-            // DatosGridView
-            // 
-            this.DatosGridView.AllowUserToAddRows = false;
-            this.DatosGridView.AllowUserToDeleteRows = false;
-            this.DatosGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DatosGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.cmnNro,
-            this.cmnTema,
-            this.cmnDuracion,
-            this.cmnBorrar,
-            this.cmnEditar});
-            this.DatosGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DatosGridView.Location = new System.Drawing.Point(0, 0);
-            this.DatosGridView.MultiSelect = false;
-            this.DatosGridView.Name = "DatosGridView";
-            this.DatosGridView.ReadOnly = true;
-            this.DatosGridView.RowHeadersVisible = false;
-            this.DatosGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DatosGridView.Size = new System.Drawing.Size(984, 406);
-            this.DatosGridView.TabIndex = 4;
-            // 
-            // cmnNro
-            // 
-            this.cmnNro.HeaderText = "Nro";
-            this.cmnNro.Name = "cmnNro";
-            this.cmnNro.ReadOnly = true;
-            // 
-            // cmnTema
-            // 
-            this.cmnTema.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.cmnTema.HeaderText = "Tema";
-            this.cmnTema.Name = "cmnTema";
-            this.cmnTema.ReadOnly = true;
-            // 
-            // cmnDuracion
-            // 
-            dataGridViewCellStyle1.Format = "t";
-            dataGridViewCellStyle1.NullValue = null;
-            this.cmnDuracion.DefaultCellStyle = dataGridViewCellStyle1;
-            this.cmnDuracion.HeaderText = "Duración";
-            this.cmnDuracion.Name = "cmnDuracion";
-            this.cmnDuracion.ReadOnly = true;
-            // 
-            // cmnBorrar
-            // 
-            this.cmnBorrar.HeaderText = "";
-            this.cmnBorrar.Name = "cmnBorrar";
-            this.cmnBorrar.ReadOnly = true;
-            // 
-            // cmnEditar
-            // 
-            this.cmnEditar.HeaderText = "";
-            this.cmnEditar.Name = "cmnEditar";
-            this.cmnEditar.ReadOnly = true;
+            this.errorProvider1.ContainerControl = this;
             // 
             // AlbumesAEForm
             // 
@@ -437,6 +448,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AlbumesAEForm";
             this.panel5.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.temasDatosGridView)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -444,8 +457,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pistasNumericUpDown)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.panel4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.DatosGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -456,12 +468,7 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Button CancelButton;
         private System.Windows.Forms.Button OkButton;
-        private System.Windows.Forms.DataGridView DatosGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cmnNro;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cmnTema;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cmnDuracion;
-        private System.Windows.Forms.DataGridViewImageColumn cmnBorrar;
-        private System.Windows.Forms.DataGridViewImageColumn cmnEditar;
+        private System.Windows.Forms.DataGridView temasDatosGridView;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button agregarTemaButton;
@@ -488,5 +495,11 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cmnNro;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cmnTema;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cmnDuracion;
+        private System.Windows.Forms.DataGridViewImageColumn cmnBorrar;
+        private System.Windows.Forms.DataGridViewImageColumn cmnEditar;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

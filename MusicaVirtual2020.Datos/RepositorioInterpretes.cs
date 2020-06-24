@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using MusicaVirtual2020.Entidades;
+using MusicaVirtual2020.Entidades.DTOs.Interprete;
 using MusicaVirtual2020.Entidades.Entities;
 
 namespace MusicaVirtual2020.Datos
@@ -144,6 +145,39 @@ namespace MusicaVirtual2020.Datos
                 InterpreteId = reader.GetInt32(0),
                 Nombre = reader.GetString(1),
                 Pais = _repositorioPaises.GetPaisPorId(reader.GetInt32(2))
+            };
+        }
+
+        public InterpreteListDto GetInterpretePorId(int id)
+        {
+            try
+            {
+                InterpreteListDto interpreteDto = null;
+                string cadenaComando = "SELECT InterpreteId, Nombre FROM Interpretes WHERE InterpreteId=@id";
+                SqlCommand comando = new SqlCommand(cadenaComando, _cn);
+                comando.Parameters.AddWithValue("@id", id);
+                SqlDataReader reader = comando.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    reader.Read();
+                    interpreteDto = ConstruirInterpreteDto(reader);
+                }
+                reader.Close();
+                return interpreteDto;
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+
+        }
+
+        private InterpreteListDto ConstruirInterpreteDto(SqlDataReader reader)
+        {
+            return new InterpreteListDto
+            {
+                InterpreteId = reader.GetInt32(0),
+                Nombre = reader.GetString(1)
             };
         }
     }

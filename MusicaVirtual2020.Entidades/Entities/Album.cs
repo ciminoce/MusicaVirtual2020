@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace MusicaVirtual2020.Entidades.Entities
 {
@@ -9,7 +10,7 @@ namespace MusicaVirtual2020.Entidades.Entities
         public Interprete Interprete { get; set; }
         public Estilo Estilo { get; set; }
         public Soporte Soporte { get; set; }
-        public int Pistas { get; set; }
+        public Int16 Pistas { get; set; }
         public Negocio Negocio { get; set; }
         public int AnioCompra { get; set; }
         public decimal Costo { get; set; }

@@ -78,6 +78,7 @@
       <DependentUpon>EstilosForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Helpers\Helper.cs" />
+    <Compile Include="Helpers\Tipo.cs" />
     <Compile Include="InterpretesAEForm.cs">
       <SubType>Form</SubType>
     </Compile>
