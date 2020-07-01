@@ -3,6 +3,7 @@ using MusicaVirtual2020.Entidades.DTOs.Estilo;
 using MusicaVirtual2020.Entidades.DTOs.Interprete;
 using MusicaVirtual2020.Entidades.DTOs.Negocio;
 using MusicaVirtual2020.Entidades.DTOs.Soporte;
+using MusicaVirtual2020.Entidades.DTOs.Tema;
 using MusicaVirtual2020.Entidades.Entities;
 
 namespace MusicaVirtual2020.Entidades.Mapas
@@ -15,6 +16,14 @@ namespace MusicaVirtual2020.Entidades.Mapas
             {
                 InterpreteId = interprete.InterpreteId,
                 Nombre = interprete.Nombre
+            };
+        }
+        public static Estilo ConvertirEstilo(EstiloListDto estiloListDto)
+        {
+            return new Estilo
+            {
+                EstiloId = estiloListDto.EstiloId,
+                Nombre = estiloListDto.Nombre
             };
         }
 
@@ -47,7 +56,7 @@ namespace MusicaVirtual2020.Entidades.Mapas
 
         public static Album ConvertirAlbum(AlbumEditDto albumEditDto)
         {
-            return new Album
+            Album album=new Album
             {
                 AlbumId = albumEditDto.AlbumId,
                 Titulo = albumEditDto.Titulo,
@@ -58,10 +67,21 @@ namespace MusicaVirtual2020.Entidades.Mapas
                 Estilo = ConvertirEstilo(albumEditDto.EstiloListDto),
                 Soporte = ConvertirSoporte(albumEditDto.SoporteListDto),
                 Negocio = ConvertirNegocio(albumEditDto.NegocioListDto)
+
             };
+            if (albumEditDto.TemasDto.Count>0)
+            {
+                albumEditDto.TemasDto.ForEach(t =>
+                {
+                    Tema tema = ConvertirTema(t);
+                    album.Temas.Add(tema);
+                });
+            }
+
+            return album;
         }
 
-        private static Negocio ConvertirNegocio(NegocioListDto negocioListDto)
+        public static Negocio ConvertirNegocio(NegocioListDto negocioListDto)
         {
             return new Negocio
             {
@@ -70,7 +90,7 @@ namespace MusicaVirtual2020.Entidades.Mapas
             };
         }
 
-        private static Soporte ConvertirSoporte(SoporteListDto soporteListDto)
+        public static Soporte ConvertirSoporte(SoporteListDto soporteListDto)
         {
             return new Soporte
             {
@@ -79,16 +99,8 @@ namespace MusicaVirtual2020.Entidades.Mapas
             };
         }
 
-        private static Estilo ConvertirEstilo(EstiloListDto estiloListDto)
-        {
-            return new Estilo
-            {
-                EstiloId = estiloListDto.EstiloId,
-                Nombre = estiloListDto.Nombre
-            };
-        }
 
-        private static Interprete ConvertirInterprete(InterpreteListDto interpreteListDto)
+        public static Interprete ConvertirInterprete(InterpreteListDto interpreteListDto)
         {
             return new Interprete
             {
@@ -105,6 +117,17 @@ namespace MusicaVirtual2020.Entidades.Mapas
                 Titulo = albumEditDto.Titulo,
                 Pistas = albumEditDto.Pistas,
                 InterpreteListDto = albumEditDto.InterpreteListDto
+            };
+        }
+
+        public static Tema ConvertirTema(TemaListDto temaDto)
+        {
+            return new Tema
+            {
+                TemaId = temaDto.TemaId,
+                PistaNro = temaDto.NroTema,
+                Nombre = temaDto.Nombre,
+                Duracion = temaDto.Duracion
             };
         }
     }

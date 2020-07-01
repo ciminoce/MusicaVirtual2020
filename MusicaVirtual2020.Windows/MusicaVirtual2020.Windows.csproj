@@ -147,6 +147,12 @@
     <Compile Include="SoportesForm.Designer.cs">
       <DependentUpon>SoportesForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="TemasAEForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TemasAEForm.Designer.cs">
+      <DependentUpon>TemasAEForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AlbumesAEForm.resx">
       <DependentUpon>AlbumesAEForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -201,6 +207,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SoportesForm.resx">
       <DependentUpon>SoportesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TemasAEForm.resx">
+      <DependentUpon>TemasAEForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

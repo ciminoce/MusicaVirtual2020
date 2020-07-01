@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MusicaVirtual2020.Entidades.DTOs.Album;
+using MusicaVirtual2020.Entidades.DTOs.Tema;
 using MusicaVirtual2020.Entidades.Entities;
 using MusicaVirtual2020.Entidades.Mapas;
 using MusicaVirtual2020.Windows.Helpers;
@@ -22,6 +23,7 @@ namespace MusicaVirtual2020.Windows
         }
 
         private AlbumEditDto albumDto;
+        private List<TemaListDto> temasDto=new List<TemaListDto>();
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
@@ -54,6 +56,7 @@ namespace MusicaVirtual2020.Windows
                 albumDto.Costo = decimal.Parse(costoTextBox.Text);
                 albumDto.AnioCompra = int.Parse(anioCompraTextBox.Text);
 
+                albumDto.TemasDto = temasDto;
                 DialogResult = DialogResult.OK;
             }
         }
@@ -114,6 +117,63 @@ namespace MusicaVirtual2020.Windows
         public AlbumEditDto GetAlbum()
         {
             return albumDto;
+        }
+
+        private void agregarTemaButton_Click(object sender, EventArgs e)
+        {
+            TemasAEForm frm=new TemasAEForm();
+            DialogResult dr = frm.ShowDialog(this);
+            if (dr==DialogResult.OK)
+            {
+                TemaListDto temaDto = frm.GetTema();
+                temaDto.NroTema = temasDto.Count+1;
+                //TODO: ver que el tema no esté repetido
+                temasDto.Add(temaDto);
+                DataGridViewRow r = ConstruirFila();
+                SetearFila(r, temaDto);
+                AgregarFila(r);
+                if (pistasNumericUpDown.Value==temasDto.Count)
+                {
+                    agregarTemaButton.Enabled = false;
+                }
+                else
+                {
+                    agregarTemaButton.Enabled = true;
+                }
+            }
+        }
+
+        private void AgregarFila(DataGridViewRow r)
+        {
+            temasDatosGridView.Rows.Add(r);
+        }
+
+        private void SetearFila(DataGridViewRow r, TemaListDto temaDto)
+        {
+            r.Cells[cmnNro.Index].Value = temaDto.NroTema;
+            r.Cells[cmnTema.Index].Value = temaDto.Nombre;
+            r.Cells[cmnDuracion.Index].Value = temaDto.Duracion;
+
+            r.Tag = temaDto;
+        }
+
+        private DataGridViewRow ConstruirFila()
+        {
+            DataGridViewRow r=new DataGridViewRow();
+            r.CreateCells(temasDatosGridView);
+            return r;
+        }
+
+        private void pistasNumericUpDown_ValueChanged(object sender, EventArgs e)
+        {
+            if (pistasNumericUpDown.Value>0)
+            {
+                agregarTemaButton.Enabled = true;
+            }
+            else
+            {
+                agregarTemaButton.Enabled = false;
+            }
         }
     }
 }

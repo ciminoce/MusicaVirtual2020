@@ -50,6 +50,7 @@
     <Compile Include="RepositorioNegocios.cs" />
     <Compile Include="RepositorioPaises.cs" />
     <Compile Include="RepositorioSoportes.cs" />
+    <Compile Include="RepositorioTemas.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MusicaVirtual2020.Entidades\MusicaVirtual2020.Entidades.csproj">

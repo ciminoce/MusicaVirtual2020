@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using MusicaVirtual2020.Datos;
+using MusicaVirtual2020.Entidades.DTOs.Estilo;
 using MusicaVirtual2020.Entidades.Entities;
+using MusicaVirtual2020.Entidades.Mapas;
 
 namespace MusicaVirtual2020.Servicios
 {
@@ -20,6 +22,7 @@ namespace MusicaVirtual2020.Servicios
             {
                 conexion=new ConexionBd();
                 repositorio=new RepositorioEstilos(conexion.AbrirConexion());
+                //var estilo = Mapeador.ConvertirEstilo(estiloDto);
                 repositorio.Agregar(estilo);
                 
                 conexion.CerrarConexion();

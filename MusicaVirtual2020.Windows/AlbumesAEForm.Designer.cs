@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.CancelButton = new System.Windows.Forms.Button();
@@ -103,7 +103,7 @@
             this.CancelButton.Location = new System.Drawing.Point(566, 12);
             this.CancelButton.Name = "CancelButton";
             this.CancelButton.Size = new System.Drawing.Size(94, 53);
-            this.CancelButton.TabIndex = 3;
+            this.CancelButton.TabIndex = 1;
             this.CancelButton.Text = "Cancelar";
             this.CancelButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.CancelButton.UseVisualStyleBackColor = true;
@@ -115,7 +115,7 @@
             this.OkButton.Location = new System.Drawing.Point(325, 12);
             this.OkButton.Name = "OkButton";
             this.OkButton.Size = new System.Drawing.Size(94, 53);
-            this.OkButton.TabIndex = 4;
+            this.OkButton.TabIndex = 0;
             this.OkButton.Text = "OK";
             this.OkButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.OkButton.UseVisualStyleBackColor = true;
@@ -157,9 +157,9 @@
             // 
             // cmnDuracion
             // 
-            dataGridViewCellStyle5.Format = "N2";
-            dataGridViewCellStyle5.NullValue = null;
-            this.cmnDuracion.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle3.Format = "N2";
+            dataGridViewCellStyle3.NullValue = null;
+            this.cmnDuracion.DefaultCellStyle = dataGridViewCellStyle3;
             this.cmnDuracion.HeaderText = "Duración";
             this.cmnDuracion.Name = "cmnDuracion";
             this.cmnDuracion.ReadOnly = true;
@@ -205,8 +205,9 @@
             this.agregarTemaButton.Location = new System.Drawing.Point(941, 14);
             this.agregarTemaButton.Name = "agregarTemaButton";
             this.agregarTemaButton.Size = new System.Drawing.Size(31, 30);
-            this.agregarTemaButton.TabIndex = 15;
+            this.agregarTemaButton.TabIndex = 0;
             this.agregarTemaButton.UseVisualStyleBackColor = true;
+            this.agregarTemaButton.Click += new System.EventHandler(this.agregarTemaButton_Click);
             // 
             // panel2
             // 
@@ -240,8 +241,9 @@
             // 
             this.pistasNumericUpDown.Location = new System.Drawing.Point(89, 172);
             this.pistasNumericUpDown.Name = "pistasNumericUpDown";
-            this.pistasNumericUpDown.Size = new System.Drawing.Size(120, 20);
-            this.pistasNumericUpDown.TabIndex = 16;
+            this.pistasNumericUpDown.Size = new System.Drawing.Size(59, 20);
+            this.pistasNumericUpDown.TabIndex = 4;
+            this.pistasNumericUpDown.ValueChanged += new System.EventHandler(this.pistasNumericUpDown_ValueChanged);
             // 
             // agregarNegocioButton
             // 
@@ -286,7 +288,7 @@
             this.negocioComboBox.Location = new System.Drawing.Point(579, 137);
             this.negocioComboBox.Name = "negocioComboBox";
             this.negocioComboBox.Size = new System.Drawing.Size(332, 21);
-            this.negocioComboBox.TabIndex = 14;
+            this.negocioComboBox.TabIndex = 5;
             // 
             // label6
             // 
@@ -304,7 +306,7 @@
             this.soporteComboBox.Location = new System.Drawing.Point(89, 137);
             this.soporteComboBox.Name = "soporteComboBox";
             this.soporteComboBox.Size = new System.Drawing.Size(332, 21);
-            this.soporteComboBox.TabIndex = 14;
+            this.soporteComboBox.TabIndex = 3;
             // 
             // label5
             // 
@@ -322,7 +324,7 @@
             this.estiloComboBox.Location = new System.Drawing.Point(89, 97);
             this.estiloComboBox.Name = "estiloComboBox";
             this.estiloComboBox.Size = new System.Drawing.Size(332, 21);
-            this.estiloComboBox.TabIndex = 14;
+            this.estiloComboBox.TabIndex = 2;
             // 
             // label4
             // 
@@ -340,7 +342,7 @@
             this.interpretesComboBox.Location = new System.Drawing.Point(89, 59);
             this.interpretesComboBox.Name = "interpretesComboBox";
             this.interpretesComboBox.Size = new System.Drawing.Size(332, 21);
-            this.interpretesComboBox.TabIndex = 14;
+            this.interpretesComboBox.TabIndex = 1;
             // 
             // label3
             // 
@@ -365,7 +367,7 @@
             this.costoTextBox.Location = new System.Drawing.Point(579, 194);
             this.costoTextBox.Name = "costoTextBox";
             this.costoTextBox.Size = new System.Drawing.Size(90, 20);
-            this.costoTextBox.TabIndex = 1;
+            this.costoTextBox.TabIndex = 7;
             this.costoTextBox.Text = "0";
             // 
             // label8
@@ -382,7 +384,7 @@
             this.anioCompraTextBox.Location = new System.Drawing.Point(579, 168);
             this.anioCompraTextBox.Name = "anioCompraTextBox";
             this.anioCompraTextBox.Size = new System.Drawing.Size(90, 20);
-            this.anioCompraTextBox.TabIndex = 1;
+            this.anioCompraTextBox.TabIndex = 6;
             // 
             // label7
             // 
@@ -398,7 +400,7 @@
             this.TituloTextBox.Location = new System.Drawing.Point(89, 19);
             this.TituloTextBox.Name = "TituloTextBox";
             this.TituloTextBox.Size = new System.Drawing.Size(592, 20);
-            this.TituloTextBox.TabIndex = 1;
+            this.TituloTextBox.TabIndex = 0;
             // 
             // label2
             // 

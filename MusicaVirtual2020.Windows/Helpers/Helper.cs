@@ -1,4 +1,5 @@
 ﻿using System.Windows.Forms;
+using MusicaVirtual2020.Entidades.DTOs.Estilo;
 using MusicaVirtual2020.Entidades.Entities;
 using MusicaVirtual2020.Servicios;
 

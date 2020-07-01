@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using MusicaVirtual2020.Datos;
 using MusicaVirtual2020.Entidades.DTOs.Album;
+using MusicaVirtual2020.Entidades.Entities;
+using MusicaVirtual2020.Entidades.Mapas;
 
 namespace MusicaVirtual2020.Servicios
 {
@@ -10,6 +13,7 @@ namespace MusicaVirtual2020.Servicios
         private ConexionBd _conexion;
         private RepositorioAlbumes _repositorio;
         private RepositorioInterpretes _repoInterpretes;
+        private RepositorioTemas _repositorioTemas;
 
         public ServicioAlbumes()
         {
@@ -36,17 +40,37 @@ namespace MusicaVirtual2020.Servicios
 
         public void Agregar(AlbumEditDto albumEditDto)
         {
+            SqlTransaction tran = null;
             try
             {
                 _conexion = new ConexionBd();
-                _repositorio = new RepositorioAlbumes(_conexion.AbrirConexion(), _repoInterpretes);
-                _repositorio.Agregar(albumEditDto);
+                SqlConnection cn = _conexion.AbrirConexion();
+                _repositorio = new RepositorioAlbumes(cn, _repoInterpretes);
+                _repositorioTemas=new RepositorioTemas(cn);
+
+                using (tran=cn.BeginTransaction())
+                {
+                    Album album = Mapeador.ConvertirAlbum(albumEditDto);
+                    _repositorio.Agregar(album, tran);
+                    albumEditDto.AlbumId = album.AlbumId;
+                    if (album.Temas.Count>0)
+                    {
+                        album.Temas.ForEach(t =>
+                        {
+                            t.Album = album;
+                            _repositorioTemas.Agregar(t,tran);
+                        });
+                    }
+
+                    tran.Commit();//método que persiste la informacion en la BD.
+                    
+                }
                 _conexion.CerrarConexion();
                 
             }
             catch (Exception e)
             {
-
+                tran.Rollback();//tira para atras todo lo grabado
                 throw new Exception(e.Message);
             }
 
