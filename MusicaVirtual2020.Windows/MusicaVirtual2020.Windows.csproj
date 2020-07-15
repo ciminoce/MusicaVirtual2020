@@ -65,6 +65,18 @@
     <Compile Include="AlbumesForm.Designer.cs">
       <DependentUpon>AlbumesForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="AlbumesPorInterpretesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AlbumesPorInterpretesForm.Designer.cs">
+      <DependentUpon>AlbumesPorInterpretesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AlbumesPorNegocioForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AlbumesPorNegocioForm.Designer.cs">
+      <DependentUpon>AlbumesPorNegocioForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="EstiloAEForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -158,6 +170,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AlbumesForm.resx">
       <DependentUpon>AlbumesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AlbumesPorInterpretesForm.resx">
+      <DependentUpon>AlbumesPorInterpretesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AlbumesPorNegocioForm.resx">
+      <DependentUpon>AlbumesPorNegocioForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EstiloAEForm.resx">
       <DependentUpon>EstiloAEForm.cs</DependentUpon>

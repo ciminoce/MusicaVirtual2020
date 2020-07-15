@@ -120,19 +120,26 @@ namespace MusicaVirtual2020.Windows
             if (dr==DialogResult.OK)
             {
                 Tema tema = frm.GetTema();
-                tema.PistaNro = temas.Count+1;
-                //TODO: ver que el tema no esté repetido
-                temas.Add(tema);
-                DataGridViewRow r = ConstruirFila();
-                SetearFila(r, tema);
-                AgregarFila(r);
-                if (pistasNumericUpDown.Value==temas.Count)
+
+                if (!temas.Contains(tema))
                 {
-                    agregarTemaButton.Enabled = false;
+                    tema.PistaNro = temas.Count + 1;
+                    temas.Add(tema);
+                    DataGridViewRow r = ConstruirFila();
+                    SetearFila(r, tema);
+                    AgregarFila(r);
+                    if (pistasNumericUpDown.Value == temas.Count)
+                    {
+                        agregarTemaButton.Enabled = false;
+                    }
+                    else
+                    {
+                        agregarTemaButton.Enabled = true;
+                    }
                 }
                 else
                 {
-                    agregarTemaButton.Enabled = true;
+                    Helper.mensajeBox("Tema repetido... ", Tipo.Error);
                 }
             }
         }

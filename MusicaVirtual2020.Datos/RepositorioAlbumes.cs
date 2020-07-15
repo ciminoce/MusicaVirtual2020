@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using MusicaVirtual2020.Entidades.DTOs.Album;
+using MusicaVirtual2020.Entidades.DTOs.Interprete;
+using MusicaVirtual2020.Entidades.DTOs.Negocio;
 using MusicaVirtual2020.Entidades.Entities;
 
 namespace MusicaVirtual2020.Datos
@@ -9,12 +11,12 @@ namespace MusicaVirtual2020.Datos
     public class RepositorioAlbumes
     {
         private SqlConnection _connection;
-        private RepositorioInterpretes _repoInterpretes;
+        //private RepositorioInterpretes _repoInterpretes;
 
-        public RepositorioAlbumes(SqlConnection connection, RepositorioInterpretes repoInterpretes)
+        public RepositorioAlbumes(SqlConnection connection)
         {
             _connection = connection;
-            _repoInterpretes = repoInterpretes;
+            //_repoInterpretes = repoInterpretes;
         }
 
         public List<AlbumListDto> GetLista()
@@ -83,6 +85,75 @@ namespace MusicaVirtual2020.Datos
                 throw new Exception(e.Message);
             }
 
+        }
+
+        public List<InterpreteAlbumesDto> GetCantidadPorInterprete()
+        {
+            try
+            {
+                List<InterpreteAlbumesDto> lista = new List<InterpreteAlbumesDto>();
+                string cadenaComando = "SELECT Nombre, COUNT(AlbumId) AS Cantidad From Albumes " +
+                                       "INNER JOIN Interpretes ON Albumes.InterpreteId=Interpretes.InterpreteId GROUP BY Nombre";
+                var comando = new SqlCommand(cadenaComando, _connection);
+                var reader = comando.ExecuteReader();
+                while (reader.Read())
+                {
+                    InterpreteAlbumesDto interpreteAlbumesDto = ConstruirInterpreteAlbumesDto(reader);
+                    lista.Add(interpreteAlbumesDto);
+                }
+                reader.Close();
+                return lista;
+            }
+            catch (Exception e)
+            {
+
+                throw new Exception(e.Message);
+            }
+
+        }
+
+        private InterpreteAlbumesDto ConstruirInterpreteAlbumesDto(SqlDataReader reader)
+        {
+            return new InterpreteAlbumesDto()
+            {
+                Interprete = reader.GetString(0),
+                Cantidad = reader.GetInt32(1)
+            };
+        }
+
+        public List<NegocioAlbumesDto> GetCantidadPorNegocio()
+        {
+            try
+            {
+                List<NegocioAlbumesDto> lista=new List<NegocioAlbumesDto>();
+                string cadenaComando = "SELECT Nombre, COUNT(AlbumId) AS Cantidad From Albumes " +
+                                       "INNER JOIN Negocios ON Albumes.NegocioId=Negocios.NegocioId GROUP BY Nombre";
+                SqlCommand comando=new SqlCommand(cadenaComando,_connection);
+                SqlDataReader reader = comando.ExecuteReader();
+                while (reader.Read())
+                {
+                    var negocioAlbumesDto = ConstruirNegocioAlbumesDto(reader);
+                    lista.Add(negocioAlbumesDto);
+
+                }
+                reader.Close();
+                return lista;
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+        }
+
+        private NegocioAlbumesDto ConstruirNegocioAlbumesDto(SqlDataReader reader)
+        {
+            return new NegocioAlbumesDto
+            {
+                Negocio = reader.GetString(0),
+                Cantidad = reader.GetInt32(1)
+            };
         }
     }
 }

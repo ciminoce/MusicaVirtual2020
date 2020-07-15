@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using MusicaVirtual2020.Datos;
 using MusicaVirtual2020.Entidades.DTOs.Album;
+using MusicaVirtual2020.Entidades.DTOs.Interprete;
+using MusicaVirtual2020.Entidades.DTOs.Negocio;
 using MusicaVirtual2020.Entidades.Entities;
 using MusicaVirtual2020.Entidades.Mapas;
 
@@ -25,8 +27,8 @@ namespace MusicaVirtual2020.Servicios
             try
             {
                 _conexion=new ConexionBd();
-                _repoInterpretes=new RepositorioInterpretes(_conexion.AbrirConexion());
-                _repositorio=new RepositorioAlbumes(_conexion.AbrirConexion(),_repoInterpretes);
+                //_repoInterpretes=new RepositorioInterpretes(_conexion.AbrirConexion());
+                _repositorio=new RepositorioAlbumes(_conexion.AbrirConexion());
                 var lista= _repositorio.GetLista();
                 _conexion.CerrarConexion();
                 return lista;
@@ -45,7 +47,7 @@ namespace MusicaVirtual2020.Servicios
             {
                 _conexion = new ConexionBd();
                 SqlConnection cn = _conexion.AbrirConexion();
-                _repositorio = new RepositorioAlbumes(cn, _repoInterpretes);
+                _repositorio = new RepositorioAlbumes(cn);
                 _repositorioTemas=new RepositorioTemas(cn);
 
                 using (tran=cn.BeginTransaction())
@@ -74,6 +76,42 @@ namespace MusicaVirtual2020.Servicios
                 throw new Exception(e.Message);
             }
 
+        }
+
+        public List<InterpreteAlbumesDto> GetCantidadPorInterprete()
+        {
+            try
+            {
+                _conexion = new ConexionBd();
+                _repositorio = new RepositorioAlbumes(_conexion.AbrirConexion());
+                var lista = _repositorio.GetCantidadPorInterprete();
+                _conexion.CerrarConexion();
+                return lista;
+            }
+            catch (Exception e)
+            {
+
+                throw new Exception(e.Message);
+            }
+
+        }
+
+        public List<NegocioAlbumesDto> GetCantidadPorNegocio()
+        {
+            try
+            {
+                _conexion=new ConexionBd();
+                _repositorio=new RepositorioAlbumes(_conexion.AbrirConexion());
+                var lista = _repositorio.GetCantidadPorNegocio();
+                _conexion.CerrarConexion();
+                return lista;
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
         }
     }
 }
