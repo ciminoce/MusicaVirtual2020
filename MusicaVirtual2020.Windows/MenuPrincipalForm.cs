@@ -142,14 +142,17 @@ namespace MusicaVirtual2020.Windows
             ManejarSoportes();
         }
 
-        private void cantidadPorIntérpreteToolStripMenuItem_Click(object sender, EventArgs e)
+
+
+        private void cantidadXIntérpreteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AlbumesPorInterpretesForm frm=new AlbumesPorInterpretesForm();
             frm.Text = "Cantidad de Álbumes por Intérprete";
             frm.ShowDialog(this);
+
         }
 
-        private void cantidadPorNegocioToolStripMenuItem_Click(object sender, EventArgs e)
+        private void cantidadXNegocioToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AlbumesPorNegocioForm frm = new AlbumesPorNegocioForm();
             frm.Text = "Cantidad de Álbumes por Negocio";
