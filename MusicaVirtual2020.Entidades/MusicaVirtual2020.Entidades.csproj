@@ -41,11 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DTOs\Album\AlbumEditDto.cs" />
     <Compile Include="DTOs\Album\AlbumListDto.cs" />
     <Compile Include="DTOs\Estilo\EstiloListDto.cs" />
     <Compile Include="DTOs\Interprete\InterpreteListDto.cs" />
     <Compile Include="DTOs\Negocio\NegocioListDto.cs" />
+    <Compile Include="DTOs\Pais\PaisListDto.cs" />
     <Compile Include="DTOs\Soporte\SoporteListDto.cs" />
     <Compile Include="DTOs\Tema\TemaListDto.cs" />
     <Compile Include="Entities\Album.cs" />

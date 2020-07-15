@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using MusicaVirtual2020.Entidades.DTOs.Album;
 using MusicaVirtual2020.Entidades.Entities;
-using MusicaVirtual2020.Entidades.Mapas;
 
 namespace MusicaVirtual2020.Datos
 {
@@ -23,7 +22,8 @@ namespace MusicaVirtual2020.Datos
             try
             {
                 List<AlbumListDto> lista = new List<AlbumListDto>();
-                string cadenaComando = "SELECT AlbumId, Titulo, InterpreteId, Pistas FROM Albumes";
+                string cadenaComando = "SELECT AlbumId, Titulo, Nombre, Pistas FROM Albumes" +
+                                       " INNER JOIN Interpretes ON Albumes.InterpreteId=Interpretes.InterpreteId";
                 var comando = new SqlCommand(cadenaComando, _connection);
                 var reader = comando.ExecuteReader();
                 while (reader.Read())
@@ -47,7 +47,7 @@ namespace MusicaVirtual2020.Datos
             {
                 AlbumId = reader.GetInt32(0),
                 Titulo = reader.GetString(1),
-                InterpreteListDto = _repoInterpretes.GetInterpretePorId(reader.GetInt32(2)),
+                Interprete = reader.GetString(2),
                 Pistas = reader.GetInt16(3)
             };
         }

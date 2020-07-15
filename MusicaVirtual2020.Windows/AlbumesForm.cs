@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 using MusicaVirtual2020.Entidades.DTOs.Album;
+using MusicaVirtual2020.Entidades.Entities;
 using MusicaVirtual2020.Entidades.Mapas;
 using MusicaVirtual2020.Servicios;
 using MusicaVirtual2020.Windows.Helpers;
@@ -68,7 +69,7 @@ namespace MusicaVirtual2020.Windows
         private void SetearFila(DataGridViewRow r, AlbumListDto album)
         {
             r.Cells[cmnAlbum.Index].Value = album.Titulo;
-            r.Cells[cmnInterprete.Index].Value = album.InterpreteListDto.Nombre;
+            r.Cells[cmnInterprete.Index].Value = album.Interprete;
             r.Cells[cmnPistas.Index].Value = album.Pistas;
 
             r.Tag = album;
@@ -94,10 +95,10 @@ namespace MusicaVirtual2020.Windows
             {
                 try
                 {
-                    AlbumEditDto albumEditDto = frm.GetAlbum();
-                    servicio.Agregar(albumEditDto);
+                    Album album = frm.GetAlbum();
+                    servicio.Agregar(album);
                     DataGridViewRow r = ConstruirFila();
-                    AlbumListDto albumListDto = Mapeador.ConvertirAlbumDto(albumEditDto);
+                    AlbumListDto albumListDto = Mapeador.ConvertirDesdeAlbum(album);
                     SetearFila(r,albumListDto);
                     AgregarFila(r);
                     Helper.mensajeBox("Registro agregado con éxito", Tipo.Success);

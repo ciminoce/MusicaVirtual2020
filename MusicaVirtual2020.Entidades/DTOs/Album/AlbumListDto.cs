@@ -6,7 +6,7 @@ namespace MusicaVirtual2020.Entidades.DTOs.Album
     {
         public int AlbumId { get; set; }
         public string Titulo { get; set; }
-        public InterpreteListDto InterpreteListDto { get; set; }
+        public string Interprete { get; set; }
         public int Pistas { get; set; }
     }
 }

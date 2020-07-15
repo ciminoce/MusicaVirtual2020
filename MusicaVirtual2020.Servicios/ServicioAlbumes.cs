@@ -38,7 +38,7 @@ namespace MusicaVirtual2020.Servicios
             }
         }
 
-        public void Agregar(AlbumEditDto albumEditDto)
+        public void Agregar(Album album)
         {
             SqlTransaction tran = null;
             try
@@ -50,9 +50,9 @@ namespace MusicaVirtual2020.Servicios
 
                 using (tran=cn.BeginTransaction())
                 {
-                    Album album = Mapeador.ConvertirAlbum(albumEditDto);
+                    //Album album = Mapeador.ConvertirAAlbum(albumEditDto);
                     _repositorio.Agregar(album, tran);
-                    albumEditDto.AlbumId = album.AlbumId;
+                    //albumEditDto.AlbumId = album.AlbumId;
                     if (album.Temas.Count>0)
                     {
                         album.Temas.ForEach(t =>

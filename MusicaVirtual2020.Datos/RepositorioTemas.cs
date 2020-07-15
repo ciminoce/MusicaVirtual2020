@@ -17,7 +17,7 @@ namespace MusicaVirtual2020.Datos
         {
             try
             {
-                string cadenaComando = "INSERT INTO Temas(PistaNumero, Nombre, Duracion, AlbumId) VALUES (@nro1,@tema,@duracion,@album)";
+                string cadenaComando = "INSERT INTO Temas(PistaNumero, Nombre, Duracion, AlbumId) VALUES (@nro, @tema, @duracion, @album)";
                 SqlCommand comando = new SqlCommand(cadenaComando, _cn, tran);
                 comando.Parameters.AddWithValue("@nro", tema.PistaNro);
                 comando.Parameters.AddWithValue("@tema", tema.Nombre);

@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using MusicaVirtual2020.Datos;
-using MusicaVirtual2020.Entidades.DTOs.Estilo;
 using MusicaVirtual2020.Entidades.Entities;
-using MusicaVirtual2020.Entidades.Mapas;
 
 namespace MusicaVirtual2020.Servicios
 {

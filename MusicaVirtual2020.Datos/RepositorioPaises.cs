@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using MusicaVirtual2020.Entidades;
+using MusicaVirtual2020.Entidades.DTOs.Pais;
 using MusicaVirtual2020.Entidades.Entities;
+using MusicaVirtual2020.Entidades.Mapas;
 
 namespace MusicaVirtual2020.Datos
 {
@@ -12,7 +13,7 @@ namespace MusicaVirtual2020.Datos
 
         public RepositorioPaises(SqlConnection cn)
         {
-            this._cn = cn;
+            _cn = cn;
         }
 
         public List<Pais> GetLista()
@@ -72,8 +73,7 @@ namespace MusicaVirtual2020.Datos
         {
             try
             {
-                SqlCommand comando = null;
-                SqlDataReader reader = null;
+                SqlCommand comando;
 
                 if (pais.PaisId==0)
                 {
@@ -90,7 +90,7 @@ namespace MusicaVirtual2020.Datos
                     comando.Parameters.AddWithValue("@id", pais.PaisId);
                 }
                 
-                reader = comando.ExecuteReader();
+                var reader = comando.ExecuteReader();
                 return reader.HasRows;
             }
             catch (Exception e)
@@ -112,20 +112,12 @@ namespace MusicaVirtual2020.Datos
                 {
                     return true;
                 }
-                else
-                {
-                    cadenaComando = "SELECT COUNT(*) FROM Interpretes WHERE PaisId=@id";
-                    comando=new SqlCommand(cadenaComando,_cn);
-                    comando.Parameters.AddWithValue("@id", pais.PaisId);
-                    cantidadRegistros = (int) comando.ExecuteScalar();
-                    if (cantidadRegistros>0)
-                    {
-                        return true;
-                    }
 
-                    return false;
-                }
-               
+                cadenaComando = "SELECT COUNT(*) FROM Interpretes WHERE PaisId=@id";
+                comando=new SqlCommand(cadenaComando,_cn);
+                comando.Parameters.AddWithValue("@id", pais.PaisId);
+                cantidadRegistros = (int) comando.ExecuteScalar();
+                return cantidadRegistros>0;
             }
             catch (Exception e)
             {
@@ -161,8 +153,8 @@ namespace MusicaVirtual2020.Datos
             }
             catch (Exception e)
             {
-                Console.WriteLine(e);
-                throw;
+                
+                throw new Exception(e.Message);
             }
         }
 

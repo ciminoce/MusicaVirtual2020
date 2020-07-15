@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using MusicaVirtual2020.Entidades.DTOs.Pais;
 using MusicaVirtual2020.Entidades.Entities;
 using MusicaVirtual2020.Reportes;
 using MusicaVirtual2020.Servicios;
+using MusicaVirtual2020.Windows.Helpers;
 
 namespace MusicaVirtual2020.Windows
 {
@@ -50,18 +52,17 @@ namespace MusicaVirtual2020.Windows
             }
             catch (Exception exception)
             {
-                MessageBox.Show(exception.Message, "Error",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Helper.mensajeBox(exception.Message,Tipo.Error);
             }
         }
 
         private void MostrarDatosEnGrilla()
         {
             DatosDataGridView.Rows.Clear();
-            foreach (var pais in lista)
+            foreach (var paisDto in lista)
             {
                 DataGridViewRow r = ConstruirFila();
-                SetearFila(r, pais);
+                SetearFila(r, paisDto);
                 AgregarFila(r);
 
             }

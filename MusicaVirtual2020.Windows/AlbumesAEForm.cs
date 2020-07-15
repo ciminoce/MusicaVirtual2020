@@ -1,11 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using MusicaVirtual2020.Entidades.DTOs.Album;
 using MusicaVirtual2020.Entidades.DTOs.Tema;
@@ -22,8 +16,8 @@ namespace MusicaVirtual2020.Windows
             InitializeComponent();
         }
 
-        private AlbumEditDto albumDto;
-        private List<TemaListDto> temasDto=new List<TemaListDto>();
+        private Album album;
+        private List<Tema> temas=new List<Tema>();
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
@@ -42,21 +36,21 @@ namespace MusicaVirtual2020.Windows
         {
             if (ValidarDatos())
             {
-                if (albumDto==null)
+                if (album==null)
                 {
-                    albumDto=new AlbumEditDto();
+                    album=new Album();
                 }
 
-                albumDto.Titulo = TituloTextBox.Text;
-                albumDto.InterpreteListDto =Mapeador.ConvertirInterpreteListDto((Interprete) interpretesComboBox.SelectedItem);
-                albumDto.EstiloListDto=Mapeador.ConvertirEstiloDto((Estilo) estiloComboBox.SelectedItem);
-                albumDto.SoporteListDto = Mapeador.ConvertirSoporteDto((Soporte) soporteComboBox.SelectedItem);
-                albumDto.NegocioListDto = Mapeador.ConvertirNegocioDto((Negocio) negocioComboBox.SelectedItem);
-                albumDto.Pistas = (Int16) pistasNumericUpDown.Value;
-                albumDto.Costo = decimal.Parse(costoTextBox.Text);
-                albumDto.AnioCompra = int.Parse(anioCompraTextBox.Text);
+                album.Titulo = TituloTextBox.Text;
+                album.Interprete =(Interprete) interpretesComboBox.SelectedItem;
+                album.Estilo=(Estilo) estiloComboBox.SelectedItem;
+                album.Soporte = (Soporte) soporteComboBox.SelectedItem;
+                album.Negocio = (Negocio) negocioComboBox.SelectedItem;
+                album.Pistas = (Int16) pistasNumericUpDown.Value;
+                album.Costo = decimal.Parse(costoTextBox.Text);
+                album.AnioCompra = int.Parse(anioCompraTextBox.Text);
 
-                albumDto.TemasDto = temasDto;
+                album.Temas = temas;
                 DialogResult = DialogResult.OK;
             }
         }
@@ -114,9 +108,9 @@ namespace MusicaVirtual2020.Windows
             return valido;
         }
 
-        public AlbumEditDto GetAlbum()
+        public Album GetAlbum()
         {
-            return albumDto;
+            return album;
         }
 
         private void agregarTemaButton_Click(object sender, EventArgs e)
@@ -125,14 +119,14 @@ namespace MusicaVirtual2020.Windows
             DialogResult dr = frm.ShowDialog(this);
             if (dr==DialogResult.OK)
             {
-                TemaListDto temaDto = frm.GetTema();
-                temaDto.NroTema = temasDto.Count+1;
+                Tema tema = frm.GetTema();
+                tema.PistaNro = temas.Count+1;
                 //TODO: ver que el tema no esté repetido
-                temasDto.Add(temaDto);
+                temas.Add(tema);
                 DataGridViewRow r = ConstruirFila();
-                SetearFila(r, temaDto);
+                SetearFila(r, tema);
                 AgregarFila(r);
-                if (pistasNumericUpDown.Value==temasDto.Count)
+                if (pistasNumericUpDown.Value==temas.Count)
                 {
                     agregarTemaButton.Enabled = false;
                 }
@@ -148,13 +142,13 @@ namespace MusicaVirtual2020.Windows
             temasDatosGridView.Rows.Add(r);
         }
 
-        private void SetearFila(DataGridViewRow r, TemaListDto temaDto)
+        private void SetearFila(DataGridViewRow r, Tema tema)
         {
-            r.Cells[cmnNro.Index].Value = temaDto.NroTema;
-            r.Cells[cmnTema.Index].Value = temaDto.Nombre;
-            r.Cells[cmnDuracion.Index].Value = temaDto.Duracion;
+            r.Cells[cmnNro.Index].Value = tema.PistaNro;
+            r.Cells[cmnTema.Index].Value = tema.Nombre;
+            r.Cells[cmnDuracion.Index].Value = tema.Duracion;
 
-            r.Tag = temaDto;
+            r.Tag = tema;
         }
 
         private DataGridViewRow ConstruirFila()
