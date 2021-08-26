@@ -14,7 +14,6 @@ namespace MusicaVirtual2020.Servicios
     {
         private ConexionBd _conexion;
         private RepositorioAlbumes _repositorio;
-        private RepositorioInterpretes _repoInterpretes;
         private RepositorioTemas _repositorioTemas;
 
         public ServicioAlbumes()
